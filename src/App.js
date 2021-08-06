@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+//react=router
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import MainTemplates from "./module/main/template/main.template";
+import { mainRoutes } from "./config/route.config";
 
 function App() {
+  const renderMainRoute = () => {
+    return mainRoutes.map((route) => {
+      const { Component, path, exact } = route;
+      return (
+        <Route path={path} exact={exact}>
+          <MainTemplates>
+            <Component />
+          </MainTemplates>
+        </Route>
+      );
+    });
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        {renderMainRoute()}
+        {/* xử lý link sai */}
+        <Route path="">
+          <Redirect to="/"></Redirect>
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 

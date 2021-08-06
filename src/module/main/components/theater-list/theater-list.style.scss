@@ -1,0 +1,33 @@
+.theater__content {
+  margin-top: 50px;
+  padding: 100px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  .theater__logo {
+    width: 6%;
+    .logo__detail {
+      margin: 20px 0;
+      img {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+  .theater__cinema {
+    width: 40%;
+    height: 440px;
+    overflow-y: auto;
+  }
+  .theatar__showtime {
+    width: 40%;
+  }
+}
+
+.background__theaterlist {
+  background-image: url("../../../../img/section.png");
+  padding-top: 10%;
+  background-size: cover;
+  background-position: center;
+}
