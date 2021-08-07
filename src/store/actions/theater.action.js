@@ -38,7 +38,6 @@ export const getTheaterCinemaAction = (cinema) => (dispatch) => {
 export const getTheaterShowTimeAction = (cinema) => (dispatch) => {
   getTheaterShowTimeApi(cinema)
     .then((res) => {
-      console.log(res);
       dispatch({
         type: GET_THEATER_SHOWTIME,
         payload: res.data,
