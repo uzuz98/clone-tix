@@ -12,7 +12,6 @@ export default function TheaterList() {
     const dispatch = useDispatch();
     useEffect(() => {
         handleChoiceCinema("BHDStar")
-        handleChoiceListCinema("BHDStar")
         dispatch(getTheaterListAction())
         renderCinema()
 
@@ -26,8 +25,7 @@ export default function TheaterList() {
 
     }
     //Lấy ra cụm rạp và trỏ tới nơi cụm rạp
-    const handleChoiceListCinema = (cinema) => {
-    }
+
     const renderLogo = () => theaterList.map((theater, index) => (
         <div className="logo__detail" key={index} >
             <img src={theater.logo} alt="" onClick={() => (handleChoiceCinema(theater.maHeThongRap))} />
