@@ -3,7 +3,7 @@ import { baseUrl, METHOD_HTTP } from "../config/api.config";
 
 export const getMovieListApi = () =>
   axios({
-    url: `${baseUrl}/QuanLyPhim/LayDanhSachPhim?maNhom=GP06 `,
+    url: `${baseUrl}/QuanLyPhim/LayDanhSachPhim?maNhom=GP09 `,
     method: METHOD_HTTP.GET,
   });
 

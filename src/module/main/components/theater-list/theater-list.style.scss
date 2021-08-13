@@ -3,25 +3,188 @@
   padding: 100px 0;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  margin: 0 auto;
+  width: 95%;
   .theater__logo {
-    width: 6%;
-    .logo__detail {
-      margin: 20px 0;
+    height: 440px;
+    width: 10%;
+    text-align: center;
+    border: 1px solid #ebebec;
+    padding: 10px 0;
+    .logo__item {
+      position: relative;
+      opacity: 0.6;
+      cursor: pointer;
+      transition: all 0.5s;
+
+      img {
+        width: 45px;
+        /* height: 50px; */
+        margin: 13px 0;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 2px;
+        transform: translateX(-50%);
+        background-color: #ebebec;
+        height: 2px;
+        width: calc(100% - 40px);
+        transition: all 0.5s;
+      }
+    }
+    .active {
+      opacity: 1;
+      &:after {
+        background-color: #fb4226;
+        box-shadow: 0 -3px 10px 0 #fb4226;
+      }
+    }
+  }
+  .theater__list {
+    &:hover {
+      ::-webkit-scrollbar {
+        width: 5px;
+      }
+    }
+    width: 40%;
+    height: 440px;
+    overflow-y: auto;
+    border: 1px solid #ebebec;
+    .list__item {
+      display: flex;
+      margin: 20px;
+      opacity: 0.7;
+      position: relative;
+      transition: all 0.5s;
+      cursor: pointer;
+      &:after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 2px;
+        transform: translateX(-50%);
+        background-color: #ebebec;
+        height: 2px;
+        width: 100%;
+        transition: all 0.5s;
+      }
+      .list__detail {
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+        margin-top: 4px;
+        span {
+          color: #8bc541;
+        }
+        p {
+          font-size: 12px;
+        }
+      }
       img {
         width: 50px;
         height: 50px;
       }
     }
+    .active {
+      opacity: 1;
+      &:after {
+        background-color: #fb4226;
+        box-shadow: 0 -3px 10px 0 #fb4226;
+      }
+    }
   }
-  .theater__cinema {
-    width: 40%;
+  .theater__showtime {
+    width: 50%;
     height: 440px;
-    overflow-y: auto;
-  }
-  .theatar__showtime {
-    width: 40%;
+    overflow-y: overlay;
+    overflow-x: hidden;
+    border: 1px solid #ebebec;
+    .time__content {
+      margin: 20px;
+      margin-right: 40px;
+      position: relative;
+      &:after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: -8px;
+        transform: translateX(-50%);
+        background-color: #ebebec;
+        height: 2px;
+        width: 100%;
+        transition: all 0.5s;
+      }
+      .time__header {
+        display: flex;
+        align-items: center;
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 4px;
+          object-fit: cover;
+        }
+        .time__name {
+          margin-left: 10px;
+          .name__age {
+            text-align: center;
+            border-radius: 4px;
+            background: #fb4226;
+            color: #fff;
+            font-size: 14px;
+            padding: 2px 10px;
+            margin-right: 8px;
+            font-weight: 600;
+          }
+          .name__movie {
+            font-weight: 600;
+          }
+          .time__detail {
+            color: #949494;
+            font-size: 12px;
+            overflow: hidden;
+          }
+        }
+      }
+      .time__item {
+        margin: 0;
+        .col-12 {
+          font-weight: 600;
+        }
+        .col-4 {
+          text-align: left;
+          height: 45px;
+          .disabled {
+            opacity: 0.6;
+            cursor: not-allowed !important;
+            &:hover {
+              color: #108f3e !important;
+              background-color: hsla(0, 0%, 96.5%, 0.6) !important;
+            }
+          }
+          .time__showtime {
+            text-align: center;
+            border: 1px solid black;
+            border-radius: 4px;
+            padding: 5px 35px;
+            background: hsla(0, 0%, 96.5%, 0.6);
+            color: #108f3e;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 80%;
+            transition: all 0.5s;
+            &:hover {
+              color: #fb4226;
+              background-color: white;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -30,4 +193,21 @@
   padding-top: 10%;
   background-size: cover;
   background-position: center;
+}
+
+//custom scrollbar
+.theater__list,
+.theater__showtime {
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: hsl(0deg, 0%, 53%);
+    // 0, 0%, 96.5%, 0.
+    border-radius: 10px;
+  }
 }
