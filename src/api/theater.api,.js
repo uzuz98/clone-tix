@@ -1,20 +1,8 @@
 import axios from "axios";
 import { baseUrl, METHOD_HTTP } from "../config/api.config";
 
-export const getTheaterListApi = () =>
+export const getTheaterShowTimeApi = () =>
   axios({
-    url: `${baseUrl}/QuanLyRap/LayThongTinHeThongRap`,
-    method: METHOD_HTTP.GET,
-  });
-
-export const getTheaterCinemaApi = (cinema) =>
-  axios({
-    url: `${baseUrl}/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${cinema}`,
-    method: METHOD_HTTP.GET,
-  });
-
-export const getTheaterShowTimeApi = (cinema) =>
-  axios({
-    url: `${baseUrl}/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${cinema}&maNhom=GP06`,
+    url: `${baseUrl}/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP09`,
     method: METHOD_HTTP.GET,
   });

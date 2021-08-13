@@ -43,6 +43,7 @@ export default function ModalCard(props) {
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
                 className={classes.modal}
+                id="modal__trailer"
                 open={open}
                 onClose={handleClose}
                 closeAfterTransition
@@ -53,7 +54,7 @@ export default function ModalCard(props) {
             >
                 <Fade in={open}>
                     <div className={classes.paper}>
-                        <iframe id="modal__iframe" width="1280" height="536" src={src} title="YouTube video player" frameborder="0" allow=" accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe className="trailer__item" id="modal__iframe" src={src} title="YouTube video player" frameborder="0" allow=" accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </Fade>
             </Modal>

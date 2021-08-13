@@ -5,19 +5,20 @@ import { getMovieListAction } from '../../../../store/actions/movie.action';
 import CardMovie from '../../components/card-movie/card-movie.component';
 import Banner from '../../components/bannner/banner.component';
 import TheaterList from '../../components/theater-list/theater-list.component';
+import { getTheaterShowTimeAction } from '../../../../store/actions/theater.action';
 
 export default function Home() {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getMovieListAction())
+        dispatch(getTheaterShowTimeAction())
     }, [])
 
     const movieList = useSelector((state) => state.movie.movieList)
 
     const settings = {
         dots: false,
-        infinite: false,
-
+        infinite: true,
         // speed: 300,
         slidesToShow: 4,
         slidesToScroll: 4,
@@ -36,14 +37,16 @@ export default function Home() {
                 breakpoint: 600,
                 settings: {
                     slidesToShow: 2,
-                    slidesToScroll: 2
+                    slidesToScroll: 2,
+                    arrows: false,
                 }
             },
             {
                 breakpoint: 480,
                 settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    arrows: false,
                 }
             }
             // You can unslick at a given breakpoint now by adding:
@@ -71,7 +74,7 @@ export default function Home() {
             </section>
             <section className="background__theaterlist"></section>
             <section className="container theater__list">
-                <TheaterList />
+                <TheaterList></TheaterList>
             </section>
         </div>
     )

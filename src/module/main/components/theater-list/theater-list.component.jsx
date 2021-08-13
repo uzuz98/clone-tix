@@ -1,84 +1,106 @@
-import React, { useState } from 'react'
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
-import { getTheaterCinemaAction, getTheaterListAction, getTheaterShowTimeAction } from '../../../../store/actions/theater.action';
+import dateFormat from 'dateformat';
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { theaterImg } from '../../../../config/theater.config';
 import './theater-list.style.scss'
 
 export default function TheaterList() {
+    //Define List Cinema by System
     const [phimTheoCumRap, setPhimTheoCumRap] = useState(
-        "bhd-star-cineplex-3-2"
+        "bhd-star-cineplex-pham-hung",
     );
+    console.log(phimTheoCumRap);
+    //Define List Cinema
+    const [heThongRap, setHeThongRap] = useState(
+        "BHDStar"
+    )
+    //get theaterShowTime on redux
+    const theaterShowTime = useSelector(state => state.theater.theaterShowTime)
+    const listTheater = theaterShowTime.filter((rap) => rap.maHeThongRap === heThongRap)
+    //get the object list cinema system
+    const lstCumRap = listTheater[0]?.lstCumRap
+    //function te render the Logo' Cinema
+    const renderLogo = () => theaterShowTime.map((cine, index) => {
+        return (
+            <>
+                <div
+                    key={index}
+                    className={heThongRap === cine.maHeThongRap ? `logo__item active` : `logo__item`}
+                    onClick={() => (setHeThongRap(cine.maHeThongRap), setPhimTheoCumRap(() => lstCumRap[0].maCumRap))}
+                >
+                    <img src={cine.logo} alt="" />
+                </div>
+            </>
+        )
+    })
+    //theaterSrc to get the Image of the respective cinema
+    const theaterSrc = theaterImg.filter((img) => img.maCumRap === heThongRap)
+    //listTheater to get the exact cinema system to render the list Cinema
 
-    const dispatch = useDispatch();
-    useEffect(() => {
-        handleChoiceCinema("BHDStar")
-        dispatch(getTheaterListAction())
-        renderCinema()
+    //function render the list cinema
+    const renderListTheater = () => lstCumRap?.map((cine, index) => {
+        return (
+            <div className={phimTheoCumRap === cine.maCumRap ? `list__item active` : `list__item`} onClick={() => setPhimTheoCumRap(cine.maCumRap)}>
+                <img src={theaterSrc[0]?.src} alt="" />
+                <div className="list__detail">
+                    <span>{cine.tenCumRap}</span>
+                    <p>{cine.diaChi}</p>
+                </div>
+            </div>
+        )
+    })
 
-    }, [])
-    const theaterList = useSelector((state) => state.theater.theaterList)
-    const theaterCinema = useSelector((state) => state.theater.theaterCinema)
-    const listCumRap = useSelector((state) => state.theater.theaterShowTime[0]?.lstCumRap)
-    const handleChoiceCinema = (cinema) => {
-        dispatch(getTheaterCinemaAction(cinema))
-        dispatch(getTheaterShowTimeAction(cinema))
-
-    }
-    //Lấy ra cụm rạp và trỏ tới nơi cụm rạp
-
-    const renderLogo = () => theaterList.map((theater, index) => (
-        <div className="logo__detail" key={index} >
-            <img src={theater.logo} alt="" onClick={() => (handleChoiceCinema(theater.maHeThongRap))} />
-        </div>
-    ))
-    const renderCinema = () => theaterCinema.map((cinema, index) => (
-        <div
-            className='cinema__detail'
-            onClick={() => setPhimTheoCumRap(cinema.maCumRap)}
-        >
-            <p>{cinema.tenCumRap}</p>
-            <p>{cinema.diaChi}</p>
-        </div>
-    ));
-    const timeMovieR = (cine) => {
-        return cine.map((r, index) => {
+    //get the present time
+    const now = dateFormat(new Date(), "HH:MM")
+    //take the exact theater by the cinema system
+    const listRap = lstCumRap?.filter((cine) => cine.maCumRap === phimTheoCumRap)
+    //function render time by the theater
+    const renderShowTime = () => listRap?.map((cine) => {
+        return cine.danhSachPhim.slice(0, 4).map((rap, index) => {
             return (
-                <>
-                    <span>{r.ngayChieuGioChieu}</span>
-                    {console.log("Đây là ngày chiếu giờ chiếu r: ", r.ngayChieuGioChieu)}
-                </>
+                <div className="time__content">
+                    <div className="time__header"
+                        data-toggle="collapse"
+                        aria-expanded="false"
+                        data-parent="#myaccordion"
+                        data-target={`#${rap.tenPhim}`}>
+                        <img src={rap.hinhAnh} alt="" />
+                        <div className="time__name">
+                            <span className="name__age">C 13</span>
+                            <span className="name__movie">- {rap.tenPhim}</span>
+                            <p className="time__detail">116 phút - TIX 8.6 - IMDb 0</p>
+                        </div>
+                    </div>
+                    <div className="row collapse"
+                        data-toggle="collapse"
+                        aria-expanded="false"
+                        id={rap.tenPhim}
+                    >
+                        <div className="time__item row">
+                            <p className="col-12">2D Digital</p>
+                            {timeMovieR(rap.lstLichChieuTheoPhim)}
+                        </div>
+                    </div>
+                </div>
+            )
+
+        })
+    })
+
+    //function to render time of movie
+    const timeMovieR = (cine) => {
+        return cine.slice(0, 6).map((time, index) => {
+            const timeMovie = dateFormat(new Date(time.ngayChieuGioChieu), "HH:MM")
+            return (
+                <div className="col-4" >
+                    <div className={timeMovie <= now ? "time__showtime disabled" : "time__showtime"}>
+                        <span>
+                            {timeMovie}
+                        </span>
+                    </div>
+                </div>
             )
         })
-    }
-    const rap = listCumRap?.filter(
-        (cinema) => cinema.maCumRap === phimTheoCumRap
-    );
-    const renderShowTime = () => {
-
-        console.log(rap);
-        console.log(listCumRap);
-        if (rap) {
-            if (rap.length > 0) {
-                return rap[0]?.danhSachPhim.map((ra, index) => {
-                    return (
-                        <div>
-                            <p>{ra.tenPhim}</p>
-                            {console.log("đây là tên phim ra: ", ra.tenPhim)}
-                            {timeMovieR(ra.lstLichChieuTheoPhim)}
-                        </div>
-                    );
-                })
-            } else {
-                return (
-                    <div>
-                        <p>Không có phim</p>
-
-                    </div>
-                )
-            }
-        }
-
-
     }
 
     return (
@@ -86,12 +108,10 @@ export default function TheaterList() {
             <div className="theater__logo">
                 {renderLogo()}
             </div>
-            <div className="theater__cinema">
-                {renderCinema()}
+            <div className="theater__list">
+                {renderListTheater()}
             </div>
             <div className="theater__showtime">
-                {/* {renderTime()} */}
-                <h1>Showing Time</h1>
                 {renderShowTime()}
             </div>
         </div>
