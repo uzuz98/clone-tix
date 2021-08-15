@@ -9,7 +9,7 @@ export default function SelectOption(props) {
     const { movieList } = props
     const dispatch = useDispatch()
     const [cumRap, setCumRapChieu] = useState("")
-    const [ngayChieuGioChieu, setNgayChieuGioChieu] = useState("")
+    const [maLichChieu, setMaLichChieu] = useState("")
     const { heThongRapChieu } = useSelector(state => state.search.searchingMovie)
     //call api for searching movie by maPhim
     const handleChoiceMovie = (name) => {
@@ -32,7 +32,7 @@ export default function SelectOption(props) {
             </>
         )
     })
-    //
+    //function render list cinema to choice
     const renderOptionCinema = () => heThongRapChieu?.map((theater) => {
         return theater?.cumRapChieu.map((cinema, index) => {
             return (
@@ -47,16 +47,16 @@ export default function SelectOption(props) {
             )
         })
     })
-
+    //get the exact movie by the theater system
     const getTimeMovie = heThongRapChieu?.map((theater) => {
         return theater?.cumRapChieu.filter(cinema => cinema.tenCumRap === cumRap)
     })
-    console.log(getTimeMovie);
+    //function to render day of movie
     const renderdateMovie = getTimeMovie?.map((listTime) => {
         if (listTime.length > 0) {
             return listTime[0].lichChieuPhim.slice(0, 10).map((time, index) => {
                 return (
-                    <option value={time.ngayChieuGioChieu} key={index}>
+                    <option value={time.maLichChieu} key={index}>
                         {dateFormat(new Date(time.ngayChieuGioChieu), "ddd dd/mm/yyyy HH:MM")}
                     </option>
                 )
@@ -64,13 +64,14 @@ export default function SelectOption(props) {
         }
     }
     )
+
+    //get the maLichChieu to go to page Booking
     const history = useHistory()
     const submitForm = (event) => {
         event.preventDefault()
         console.log("success");
-        history.push("/sign-in")
+        history.push(`/booking/${maLichChieu}`)
     }
-    console.log(ngayChieuGioChieu);
     return (
         <form className="search__form" onSubmit={submitForm}>
             <div className="search__group">
@@ -104,7 +105,7 @@ export default function SelectOption(props) {
                     className="search__date"
                     name="search__date"
                     id="date"
-                    onChange={() => setNgayChieuGioChieu(document.getElementById("date").value)}
+                    onChange={() => setMaLichChieu(document.getElementById("date").value)}
                 >
                     <option selected disabled hidden value="">Ngày chiếu...</option>
                     {renderdateMovie}
@@ -112,7 +113,7 @@ export default function SelectOption(props) {
             </div>
             <div className="buy__ticket">
                 <button
-                    type={ngayChieuGioChieu === "" ? "button" : "submit"} className={ngayChieuGioChieu === "" ? "button__buy disabled" : "button__buy"}
+                    type={maLichChieu === "" ? "button" : "submit"} className={maLichChieu === "" ? "button__buy disabled" : "button__buy"}
                 >Mua Vé Ngay</button>
             </div>
         </form >

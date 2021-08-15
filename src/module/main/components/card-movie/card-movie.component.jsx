@@ -11,8 +11,8 @@ export default class CardMovie extends Component {
             <>
                 <Link to={`/movie-detail/${movie.maPhim}`} className="card__link">
                     <div className="card__movie">
-                        <a className="cardmovie__item" href="" style={{ backgroundImage: `url(${movie.hinhAnh})` }}>
-                        </a>
+                        <div className="cardmovie__item" href="" style={{ backgroundImage: `url(${movie.hinhAnh})` }}>
+                        </div>
                         <div className="card-body">
                             <span className="card__age">C13 </span>
                             <span className="card-title">{movie.tenPhim}</span>

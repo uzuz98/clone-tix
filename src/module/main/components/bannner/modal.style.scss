@@ -70,13 +70,25 @@
     }
   }
 }
-@media only screen and(min-width:1024.22px) {
+@media only screen and(min-width:1366.22px) {
   .trailer__item {
     width: 1200px;
     height: 536px;
   }
 }
-
+@media only screen and(max-width:1366px) {
+  .trailer__item {
+    width: 1200px;
+    height: 536px;
+  }
+  .best__movie {
+    .slick-slider {
+      button.playMovie {
+        opacity: 0.7;
+      }
+    }
+  }
+}
 @media only screen and (max-width: 1024px) {
   .best__movie {
     .slick-slider {
@@ -98,6 +110,13 @@
   .trailer__item {
     width: 800px;
     height: 400px;
+  }
+}
+
+@media only screen and(max-width:736.22px) {
+  .trailer__item {
+    width: 600px;
+    height: 250px;
   }
 }
 

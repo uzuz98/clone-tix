@@ -6,14 +6,14 @@ export default function NewList(props) {
     const { listnew } = props
     const renderBigNew = listnew[0].map((news, index) => {
         return (
-            <div className="col-12 col-sm-6" key={index}>
+            <div className="col-12 col-sm-12 col-md-6" key={index}>
                 <NewItem news={news}></NewItem>
             </div>
         )
     })
     const renderMediumNew = listnew[1].map((news, index) => {
         return (
-            <div className="col-12 col-sm-4" key={index}>
+            <div className="col-12 col-sm-12 col-md-6" key={index}>
                 <NewItem news={news}></NewItem>
             </div>
         )
@@ -30,7 +30,7 @@ export default function NewList(props) {
         <div className="row">
             {renderBigNew}
             {renderMediumNew}
-            <div className="col-12 col-sm-4">
+            <div className="col-12 col-sm-12 col-md-4">
                 {renderSmallNew}
             </div>
         </div>
