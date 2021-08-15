@@ -1,0 +1,106 @@
+.news {
+  .news__title {
+    .nav-tabs {
+      justify-content: center;
+      margin: 10px 0;
+      .active {
+        border: none;
+        color: #fa5238;
+        transform: scale(1.5);
+        margin: 0 10px;
+      }
+      a {
+        color: #495057;
+        transition: all 0.5s;
+        border: none;
+        background-color: transparent;
+        &:hover {
+          transform: scale(1.5);
+          margin: 0 10px;
+          border: none;
+
+          color: #fa5238;
+        }
+      }
+    }
+  }
+  img {
+    width: 100%;
+    border-radius: 5px;
+  }
+  .news__tab {
+    .tab-pane {
+      .new__content:nth-child(2) {
+        display: none;
+      }
+      .new__content {
+        .newsblock__item {
+          .item__info {
+            .item__info--title {
+              a {
+                text-decoration: none;
+                color: black;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                font-size: 18px;
+                height: 22px;
+                transition: all 0.5s;
+                margin: 10px 0;
+                &:hover {
+                  color: #fa5238;
+                }
+              }
+            }
+            p {
+              text-align: justify;
+              font-size: 14px;
+              display: -webkit-box;
+              -webkit-line-clamp: 3;
+              -webkit-box-orient: vertical;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              height: 80px;
+            }
+          }
+        }
+        .col-sm-4 {
+          .content {
+            .newsblock__item {
+              display: flex;
+              margin-bottom: 10px;
+              align-items: flex-start;
+              .item__img {
+                img {
+                  width: 50px;
+                  height: 50px;
+                  margin-right: 10px;
+                  border-radius: 3px;
+                }
+              }
+              .item__info {
+                a {
+                  margin: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .button__viewhide {
+    text-align: center;
+    margin: 10px 0;
+    .show__more {
+      display: block;
+      margin: 0 auto;
+    }
+    .btn__hide {
+      display: none;
+      margin: 0 auto;
+    }
+  }
+}

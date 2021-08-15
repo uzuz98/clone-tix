@@ -96,3 +96,57 @@
     left: -65px;
   }
 }
+
+@media only screen and (max-width: 1024px) {
+  .list__movie {
+    .container {
+      padding-right: 0;
+    }
+    .list__content {
+      margin-left: 0;
+      margin-right: 0;
+      .slick-prev {
+        left: -40px;
+      }
+      .slick-next {
+        right: -10px;
+      }
+      .slick-dots {
+        bottom: 10px;
+      }
+    }
+    .card__item {
+      .card__overlay {
+        opacity: 1;
+        .playMovie {
+          top: 35%;
+          opacity: 0.8;
+        }
+        .btn__buyTicket {
+          height: 40px;
+          bottom: 40px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .list__movie {
+    .list__content {
+      .card__item {
+        .card__overlay {
+          .btn__buyTicket {
+            bottom: 75px;
+          }
+        }
+      }
+
+      .slick-dots {
+        li {
+          width: 3px;
+        }
+      }
+    }
+  }
+}

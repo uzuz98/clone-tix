@@ -14,19 +14,19 @@ export default class Header extends Component {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <NavLink activeClassname="nav-link-active" className="
+                                <NavLink activeClassName="nav-link-active" className="
                             nav-link" to="/">Home</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink activeClassname="nav-link-active" className="
+                                <NavLink activeClassName="nav-link-active" className="
                             nav-link" to="/sign-in">Sign In</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink activeClassname="nav-link-active" className="
+                                <NavLink activeClassName="nav-link-active" className="
                             nav-link" to="/sign-up">Sign Up</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink activeClassname="nav-link-active" className="
+                                <NavLink activeClassName="nav-link-active" className="
                             nav-link" to="/movie-detail">Movie Detail</NavLink>
                             </li>
                         </ul>

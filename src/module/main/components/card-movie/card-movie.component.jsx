@@ -6,7 +6,7 @@ import ModalCard from '../bannner/modal.component'
 export default class CardMovie extends Component {
     render() {
 
-        const { movie } = this.props
+        const { movie, content } = this.props
         return (
             <>
                 <Link to={`/movie-detail/${movie.maPhim}`} className="card__link">
@@ -22,7 +22,7 @@ export default class CardMovie extends Component {
                 <div className="card__overlay">
                     <ModalCard src={movie.trailer} />
                     <Link to={`/movie-detail/${movie.maPhim}`} className="btn__buyTicket container">
-                        Mua vé
+                        {content}
                     </Link>
                 </div>
             </ >

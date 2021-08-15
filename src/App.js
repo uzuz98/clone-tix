@@ -7,10 +7,10 @@ import { mainRoutes } from "./config/route.config";
 
 function App() {
   const renderMainRoute = () => {
-    return mainRoutes.map((route) => {
+    return mainRoutes.map((route, index) => {
       const { Component, path, exact } = route;
       return (
-        <Route path={path} exact={exact}>
+        <Route path={path} exact={exact} key={index}>
           <MainTemplates>
             <Component />
           </MainTemplates>
