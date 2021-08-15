@@ -1,3 +1,4 @@
+import Booking from "../module/main/pages/booking/booking.page";
 import Home from "../module/main/pages/homes/home.page";
 import MovieDetail from "../module/main/pages/movie-detail/movie-detail.page";
 import Profile from "../module/main/pages/profile/profile.page";
@@ -29,5 +30,10 @@ export const mainRoutes = [
     path: "/profile",
     exact: true,
     Component: Profile,
+  },
+  {
+    path: "/booking/:id",
+    exact: true,
+    Component: Booking,
   },
 ];

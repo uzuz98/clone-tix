@@ -88,12 +88,32 @@
 }
 
 .list__content {
+  margin-bottom: 45px;
   .slick-arrow::before {
     color: black;
     font-size: 33px;
   }
   .slick-prev {
     left: -65px;
+  }
+}
+
+@media only screen and (max-width: 1366px) {
+  .list__movie {
+    .list__content {
+      height: 580px;
+      .slick-list {
+        height: 100%;
+        .card__item {
+          .card__overlay {
+            opacity: 1;
+            .btn__buyTicket {
+              bottom: -45px;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -105,14 +125,14 @@
     .list__content {
       margin-left: 0;
       margin-right: 0;
+      height: unset;
       .slick-prev {
-        left: -40px;
+        left: 45%;
+        top: 100%;
       }
       .slick-next {
-        right: -10px;
-      }
-      .slick-dots {
-        bottom: 10px;
+        top: 100%;
+        right: 48%;
       }
     }
     .card__item {
@@ -124,8 +144,42 @@
         }
         .btn__buyTicket {
           height: 40px;
-          bottom: 40px;
+          bottom: 40px !important;
         }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 736px) {
+  .list__movie {
+    .list__content {
+      height: 430px;
+      .slick-list {
+        padding: 0 8px;
+      }
+      .card__item {
+        .playMovie {
+          img {
+            width: 50px;
+          }
+        }
+        .card-title {
+          font-size: 12px !important;
+          font-weight: 600 !important;
+        }
+        .card__overlay {
+          .btn__buyTicket {
+            bottom: 140px !important;
+          }
+        }
+      }
+      .slick-prev {
+        left: -40px;
+        top: 50%;
+      }
+      .slick-next {
+        right: -24px;
+        top: 50%;
       }
     }
   }

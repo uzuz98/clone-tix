@@ -9,7 +9,6 @@ export default function TheaterList() {
     const [phimTheoCumRap, setPhimTheoCumRap] = useState(
         "bhd-star-cineplex-pham-hung",
     );
-    console.log(phimTheoCumRap);
     //Define List Cinema
     const [heThongRap, setHeThongRap] = useState(
         "BHDStar"
@@ -109,32 +108,92 @@ export default function TheaterList() {
             )
         })
     }
-
+    // data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"
     //function to render time of movie in mobile
     const renderListTheaterInMobile = () => lstCumRap?.map((cine, index) => {
         return (
-            <div className={phimTheoCumRap === cine.maCumRap ? `list__item active` : `list__item`} onClick={() => setPhimTheoCumRap(cine.maCumRap)} key={index}>
-                <img src={theaterSrc[0]?.src} alt="" />
-                <div className="list__detail">
-                    <span>{cine.tenCumRap}</span>
-                    <p>{cine.diaChi}</p>
+            <>
+                <div
+                    className={phimTheoCumRap === cine.maCumRap ? `list__item active collapsed` : `list__item collapsed`}
+                    onClick={() => setPhimTheoCumRap(cine.maCumRap)}
+                    key={index}
+                    data-toggle="collapse"
+                    aria-expanded="false"
+                    data-parent="#mymovie"
+                    data-target={`#${cine.maCumRap}--mobile`}
+                >
+                    <img src={theaterSrc[0]?.src} alt="" />
+                    <div className="list__detail">
+                        <span>{cine.tenCumRap}</span>
+                        <p>{cine.diaChi}</p>
+                    </div>
                 </div>
-            </div>
+
+                <div
+                    className="row collapse "
+                    id={`${cine.maCumRap}--mobile`}
+                >
+                    <div className="theater__showtime">
+                        {
+                            cine.danhSachPhim.slice(0, 4).map((rap) => {
+                                return (
+                                    <div className="time__content" key={index} >
+                                        <div
+                                            className="time__header collapsed"
+                                            data-toggle="collapse"
+                                            aria-expanded="false"
+                                            data-parent="#myaccordion"
+                                            data-target={`#${rap.tenPhim}--mobile`}>
+                                            <img src={rap.hinhAnh} alt="" />
+                                            <div className="time__name">
+                                                <span className="name__age">C 13</span>
+                                                <span className="name__movie">- {rap.tenPhim}</span>
+                                                <p className="time__detail">116 phút - TIX 8.6 - IMDb 0</p>
+                                            </div>
+                                        </div>
+                                        <div className="row collapse "
+                                            id={`${rap.tenPhim}--mobile`}
+                                        >
+                                            <div className="time__item row">
+                                                <p className="col-12">2D Digital</p>
+                                                {timeMovieR(rap.lstLichChieuTheoPhim)}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                </div>
+
+            </>
         )
     })
 
     return (
-        <div className="theater__content">
-            <div className="theater__logo">
-                {renderLogo()}
+        <>
+            <div className="theater__content content--desktop">
+                <div className="theater__logo">
+                    {renderLogo()}
+                </div>
+                <div className="theater__list">
+                    {renderListTheater()}
+                </div>
+                <div className="theater__showtime">
+                    {renderShowTime()}
+                </div>
             </div>
-            <div className="theater__list">
-                {renderListTheater()}
+            <div className="theater__list--mobile">
+                <div className="theater__content">
+                    <div className="theater__logo">
+                        {renderLogo()}
+                    </div>
+                    <div className="theater__list">
+                        {renderListTheaterInMobile()}
+                    </div>
+                </div>
             </div>
-            <div className="theater__showtime">
-                {renderShowTime()}
-            </div>
-        </div>
+        </>
     )
 
 }

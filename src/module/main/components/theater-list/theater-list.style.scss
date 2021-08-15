@@ -205,6 +205,23 @@
   }
 }
 
+.theater__list--mobile {
+  display: none;
+  .theater__showtime {
+    width: 100%;
+    height: unset;
+    margin: 0;
+  }
+  .show {
+    transition: all 0.5s;
+  }
+  .collapsing,
+  .collapse,
+  .show {
+    width: 100%;
+    transition: all 0.5s;
+  }
+}
 .background__theaterlist {
   background-image: url("../../../../img/section.png");
   padding-top: 10%;
@@ -244,37 +261,18 @@
   .theater__main {
     max-width: 735px;
   }
-  .theater__content {
-    width: 100%;
-    flex-direction: column;
-    margin: 0;
-
+  .content--desktop {
+    display: none;
+  }
+  .theater__list--mobile {
+    display: block;
     .theater__logo {
-      width: 100%;
-      flex-basis: 92px;
-      height: 90px;
-      flex-wrap: nowrap;
-      overflow-y: hidden;
-      overflow-x: auto;
-      display: flex;
-      .logo__item {
-        display: inline;
-        margin: 15px 36px;
-        &:after {
-          content: none;
-        }
-        img {
-          margin: -5px 0;
-        }
-      }
+      width: 17%;
     }
     .theater__list {
-      width: 100%;
-    }
-    .theater__showtime {
-      width: 100%;
-      .time__content {
-        margin-right: 25px;
+      width: 90% !important;
+      .row {
+        margin: 0 !important;
       }
     }
   }

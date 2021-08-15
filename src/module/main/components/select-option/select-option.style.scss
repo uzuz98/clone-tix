@@ -37,9 +37,6 @@
       .search__date {
         width: 210px;
       }
-      .search__time {
-        width: 150px;
-      }
     }
     .buy__ticket {
       margin-left: 45px;
@@ -54,9 +51,44 @@
       .disabled {
         cursor: auto;
         opacity: 0.6;
+        transition: all 0.5s;
         &:focus {
           outline: none;
         }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024.242px) {
+  .search__form {
+    .buy__ticket {
+      margin-left: 7px !important;
+      margin-right: 2px;
+    }
+  }
+}
+
+@media only screen and (max-width: 736px) {
+  .searching {
+    height: unset;
+    .search__form {
+      flex-direction: column;
+      transform: translateY(-15%);
+      .search__group {
+        width: 100%;
+        select {
+          margin: 0;
+          width: 100% !important;
+        }
+        &:after {
+          height: 2px !important;
+          left: 0 !important;
+          width: 100% !important;
+        }
+      }
+      .buy__ticket {
+        margin: 10px 0;
       }
     }
   }

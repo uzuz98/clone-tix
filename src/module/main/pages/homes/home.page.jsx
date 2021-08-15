@@ -23,7 +23,8 @@ export default function Home() {
     const settings = {
         dots: false,
         infinite: true,
-        // speed: 300,
+        autoplay: true,
+        autoplaySpeed: 2000,
         slidesToShow: 4,
         slidesToScroll: 4,
         arrows: true,
@@ -33,16 +34,16 @@ export default function Home() {
                 settings: {
                     slidesToShow: 4,
                     slidesToScroll: 4,
-                    infinite: true,
-                    dots: true
+                    autoplay: true,
+                    autoplaySpeed: 2000,
                 }
             },
             {
-                breakpoint: 600,
+                breakpoint: 736,
                 settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                    arrows: false,
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    autoplay: false,
                 }
             },
             {
@@ -51,7 +52,9 @@ export default function Home() {
                     slidesToShow: 2,
                     slidesToScroll: 2,
                     arrows: false,
-                    dots: true
+                    dots: true,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
                 }
             }
             // You can unslick at a given breakpoint now by adding:
