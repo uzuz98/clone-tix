@@ -14,19 +14,25 @@ export default function TheaterList() {
     const [heThongRap, setHeThongRap] = useState(
         "BHDStar"
     )
+
     //get theaterShowTime on redux
     const theaterShowTime = useSelector(state => state.theater.theaterShowTime)
     const listTheater = theaterShowTime.filter((rap) => rap.maHeThongRap === heThongRap)
     //get the object list cinema system
     const lstCumRap = listTheater[0]?.lstCumRap
-    //function te render the Logo' Cinema
+    useEffect(() => {
+        if (lstCumRap) {
+            setPhimTheoCumRap(lstCumRap[0]?.maCumRap)
+        }
+    }, [heThongRap])
+    //function to render the Logo' Cinema
     const renderLogo = () => theaterShowTime.map((cine, index) => {
         return (
             <>
                 <div
                     key={index}
                     className={heThongRap === cine.maHeThongRap ? `logo__item active` : `logo__item`}
-                    onClick={() => (setHeThongRap(cine.maHeThongRap), setPhimTheoCumRap(() => lstCumRap[0].maCumRap))}
+                    onClick={() => (setHeThongRap(cine.maHeThongRap))}
                 >
                     <img src={cine.logo} alt="" />
                 </div>
@@ -40,7 +46,7 @@ export default function TheaterList() {
     //function render the list cinema
     const renderListTheater = () => lstCumRap?.map((cine, index) => {
         return (
-            <div className={phimTheoCumRap === cine.maCumRap ? `list__item active` : `list__item`} onClick={() => setPhimTheoCumRap(cine.maCumRap)}>
+            <div className={phimTheoCumRap === cine.maCumRap ? `list__item active` : `list__item`} onClick={() => setPhimTheoCumRap(cine.maCumRap)} key={index}>
                 <img src={theaterSrc[0]?.src} alt="" />
                 <div className="list__detail">
                     <span>{cine.tenCumRap}</span>
@@ -58,8 +64,9 @@ export default function TheaterList() {
     const renderShowTime = () => listRap?.map((cine) => {
         return cine.danhSachPhim.slice(0, 4).map((rap, index) => {
             return (
-                <div className="time__content">
-                    <div className="time__header"
+                <div className="time__content" key={index} >
+                    <div
+                        className="time__header collapsed"
                         data-toggle="collapse"
                         aria-expanded="false"
                         data-parent="#myaccordion"
@@ -71,7 +78,7 @@ export default function TheaterList() {
                             <p className="time__detail">116 phút - TIX 8.6 - IMDb 0</p>
                         </div>
                     </div>
-                    <div className="row collapse"
+                    <div className="row collapse "
                         data-toggle="collapse"
                         aria-expanded="false"
                         id={rap.tenPhim}
@@ -92,7 +99,7 @@ export default function TheaterList() {
         return cine.slice(0, 6).map((time, index) => {
             const timeMovie = dateFormat(new Date(time.ngayChieuGioChieu), "HH:MM")
             return (
-                <div className="col-4" >
+                <div className="col-4" key={index}>
                     <div className={timeMovie <= now ? "time__showtime disabled" : "time__showtime"}>
                         <span>
                             {timeMovie}
@@ -102,6 +109,19 @@ export default function TheaterList() {
             )
         })
     }
+
+    //function to render time of movie in mobile
+    const renderListTheaterInMobile = () => lstCumRap?.map((cine, index) => {
+        return (
+            <div className={phimTheoCumRap === cine.maCumRap ? `list__item active` : `list__item`} onClick={() => setPhimTheoCumRap(cine.maCumRap)} key={index}>
+                <img src={theaterSrc[0]?.src} alt="" />
+                <div className="list__detail">
+                    <span>{cine.tenCumRap}</span>
+                    <p>{cine.diaChi}</p>
+                </div>
+            </div>
+        )
+    })
 
     return (
         <div className="theater__content">

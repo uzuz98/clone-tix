@@ -1,0 +1,63 @@
+.searching {
+  height: 60px;
+  .search__form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 30%);
+    background-color: white;
+    height: 100%;
+    border-radius: 4px;
+    transform: translateY(-50%);
+    .search__group {
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: -5px;
+        height: 120%;
+        width: 2px;
+        background-color: #ebebec;
+      }
+      select {
+        padding: 5px 10px;
+        border: none;
+        margin: 0 5px;
+        &:focus-visible {
+          outline: none;
+        }
+      }
+      .search__film {
+        width: 300px;
+      }
+      .search__theater {
+        width: 250px;
+      }
+      .search__date {
+        width: 210px;
+      }
+      .search__time {
+        width: 150px;
+      }
+    }
+    .buy__ticket {
+      margin-left: 45px;
+      .button__buy {
+        border-radius: 5px;
+        padding: 5px 10px;
+        border: 1px solid #fb4226;
+        color: white;
+        background: linear-gradient(270deg, #fb4226, #ce3017);
+        cursor: pointer;
+      }
+      .disabled {
+        cursor: auto;
+        opacity: 0.6;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}

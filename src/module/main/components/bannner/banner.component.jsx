@@ -7,7 +7,7 @@ import ModalCard from './modal.component'
 
 export default class Banner extends Component {
     renderImg = bannerMovie.map((banner, index) => (
-        <div className="banner__item">
+        <div className="banner__item" key={index}>
             <img src={banner.img} className="modalMovie__img" />
             <ModalCard src={banner.src} />
         </div >
