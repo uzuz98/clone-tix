@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '../components/footer/footer.component';
 import Header from '../components/header/header.page'
 
 export default function MainTemplates(props) {
@@ -11,8 +12,8 @@ export default function MainTemplates(props) {
             <main>
                 {children}
             </main>
-            <footer>
-                <h1>Footer</h1>
+            <footer className="footer">
+                <Footer></Footer>
             </footer>
         </>
     )

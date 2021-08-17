@@ -86,7 +86,15 @@
 .card__link:hover {
   text-decoration: none !important;
 }
-
+.list__movie {
+  margin: 40px 0;
+  h1 {
+    font-size: 2.5rem;
+    color: #fa5238;
+    text-shadow: -8px -4px 6px lightgrey;
+    margin: 20px 0;
+  }
+}
 .list__content {
   margin-bottom: 45px;
   .slick-arrow::before {
