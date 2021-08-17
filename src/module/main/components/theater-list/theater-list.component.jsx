@@ -77,7 +77,7 @@ export default function TheaterList() {
                             <p className="time__detail">116 phút - TIX 8.6 - IMDb 0</p>
                         </div>
                     </div>
-                    <div className="row collapse "
+                    <div className="collapse "
                         data-toggle="collapse"
                         aria-expanded="false"
                         id={rap.tenPhim}
@@ -141,7 +141,7 @@ export default function TheaterList() {
                 </div>
 
                 <div
-                    className="row collapse "
+                    className="collapse "
                     id={`${cine.maCumRap}--mobile`}
                 >
                     <div className="theater__showtime">
@@ -162,7 +162,7 @@ export default function TheaterList() {
                                                 <p className="time__detail">116 phút - TIX 8.6 - IMDb 0</p>
                                             </div>
                                         </div>
-                                        <div className="row collapse"
+                                        <div className="collapse"
                                             data-toggle="collapse"
                                             aria-expanded="false"
                                             id={`${rap.tenPhim}--mobile`}
