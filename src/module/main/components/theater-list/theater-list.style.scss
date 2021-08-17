@@ -171,6 +171,12 @@
         .col-12 {
           font-weight: 600;
         }
+        a.col-4 {
+          &:hover {
+            color: unset;
+            text-decoration: none;
+          }
+        }
         .col-4 {
           text-align: left;
           height: 45px;
@@ -194,6 +200,9 @@
             cursor: pointer;
             width: 80%;
             transition: all 0.5s;
+            span {
+              transition: none;
+            }
             &:hover {
               color: #fb4226;
               background-color: white;
@@ -278,3 +287,13 @@
   }
 }
 // margin: 4px;
+
+@media only screen and (max-width: 414.22px) {
+  .theater__content {
+    .theater__showtime {
+      .time__showtime {
+        width: 100% !important;
+      }
+    }
+  }
+}

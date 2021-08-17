@@ -12,7 +12,7 @@ export default function MainTemplates(props) {
                 {children}
             </main>
             <footer>
-                <h5>Footer</h5>
+                <h1>Footer</h1>
             </footer>
         </>
     )
