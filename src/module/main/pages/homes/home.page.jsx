@@ -51,14 +51,13 @@ export default function Home() {
             {
                 breakpoint: 480,
                 settings: {
+                    infinite: true,
                     slidesToShow: 2,
                     slidesToScroll: 2,
-                    arrows: false,
                     dots: true,
                     autoplay: true,
                     autoplaySpeed: 5000,
                     arrows: true,
-
                 }
             }
             // You can unslick at a given breakpoint now by adding:

@@ -210,9 +210,10 @@
     .container {
       padding-left: 0;
       .card__item {
+        height: 480px;
         .card__overlay {
           .btn__buyTicket {
-            bottom: 60px !important;
+            bottom: 0px !important;
           }
         }
       }
