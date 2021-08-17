@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Slider from 'react-slick';
 import { getMovieListAction } from '../../../../store/actions/movie.action';
@@ -9,6 +9,8 @@ import { getTheaterShowTimeAction } from '../../../../store/actions/theater.acti
 import News from '../../components/news/new.component';
 import dateFormat from 'dateformat';
 import SelectOption from '../../components/select-option/select-option';
+import Ads from '../../components/ads/ads.component';
+
 
 export default function Home() {
     const dispatch = useDispatch();
@@ -24,7 +26,7 @@ export default function Home() {
         dots: false,
         infinite: true,
         autoplay: true,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 4000,
         slidesToShow: 4,
         slidesToScroll: 4,
         arrows: true,
@@ -35,7 +37,7 @@ export default function Home() {
                     slidesToShow: 4,
                     slidesToScroll: 4,
                     autoplay: true,
-                    autoplaySpeed: 2000,
+                    autoplaySpeed: 5000,
                 }
             },
             {
@@ -54,7 +56,9 @@ export default function Home() {
                     arrows: false,
                     dots: true,
                     autoplay: true,
-                    autoplaySpeed: 2000,
+                    autoplaySpeed: 5000,
+                    arrows: true,
+
                 }
             }
             // You can unslick at a given breakpoint now by adding:
@@ -97,7 +101,7 @@ export default function Home() {
             <section className="searching container">
                 <SelectOption movieList={movieList}></SelectOption>
             </section>
-            <section className="list__movie">
+            <section className="list__movie" id="listMovie">
                 <h1 className="text-center">Phim đang chiếu</h1>
                 <div className="container movie__available">
                     <Slider {...settings} className="row list__content">
@@ -112,13 +116,17 @@ export default function Home() {
                 </div>
             </section>
             <section className="background__theaterlist"></section>
-            <section className="container theater__main">
+            <section className="container theater__main" id="theaterMain">
                 <TheaterList></TheaterList>
             </section>
 
             <section className="background__theaterlist"></section>
-            <section className="news container">
+            <section className="news container" id="news">
                 <News></News>
+            </section>
+            <section className="background__theaterlist"></section>
+            <section className="ads" id="ads">
+                <Ads></Ads>
             </section>
         </div>
     )

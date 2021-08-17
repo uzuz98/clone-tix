@@ -1,0 +1,120 @@
+.ads {
+  background-image: url("../../../../img/ads/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 120px 0 80px;
+  .container {
+    .ads__content {
+      .ads__title {
+        font-size: 32px;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 10px;
+      }
+      .ads__subtitle {
+        margin: 0;
+        font-size: 16px;
+        color: white;
+      }
+      .btnDownload {
+        font-size: 16px;
+        background: #fb4226;
+        padding: 10px 20px;
+        font-weight: 700;
+        color: #fff;
+        border: 1px solid #fb4226;
+        border-radius: 4px;
+        cursor: pointer;
+        &:hover {
+          color: black;
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+      .text__underbutton {
+        margin: 0;
+        font-size: 16px;
+        padding-top: 10px;
+        color: white;
+        a {
+          text-decoration: underline;
+          margin: 0 3px;
+          color: white;
+          &:hover {
+            color: #fb4226;
+          }
+        }
+      }
+    }
+  }
+}
+.ads__mobile {
+  padding: 0 25.5%;
+  width: 80%;
+}
+
+.ads__carousel {
+  position: absolute;
+  top: -3px;
+  left: -54px;
+  width: 100%;
+  height: 100%;
+  padding: 2% 37% 1.5%;
+  .slick-list {
+    border-radius: 14px;
+    width: 150px;
+    .slick-track {
+      img {
+        width: 152px;
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 736.22px) {
+  .ads__content {
+    .ads__mobile {
+      width: 100%;
+      padding: 0 25.5%;
+    }
+    .ads__app {
+      margin-top: 20px;
+    }
+    .ads__carousel {
+      left: -48px;
+      top: 3px;
+      .slick-list {
+        height: 502px;
+        width: 235px;
+        border-radius: 17px;
+        img {
+          width: 235px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 414.22px) {
+  .ads__content {
+    .ads__mobile {
+      padding: 0 25.5%;
+    }
+    .ads__carousel {
+      left: -34px;
+      top: 1px;
+      .slick-list {
+        width: 175px;
+        border-radius: 17px;
+        height: 381px;
+
+        img {
+          width: 177px;
+        }
+      }
+    }
+  }
+}

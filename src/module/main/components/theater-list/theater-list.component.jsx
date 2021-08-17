@@ -1,6 +1,7 @@
 import dateFormat from 'dateformat';
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import { NavLink } from 'react-router-dom';
 import { theaterImg } from '../../../../config/theater.config';
 import './theater-list.style.scss'
 
@@ -55,8 +56,7 @@ export default function TheaterList() {
         )
     })
 
-    //get the present time
-    const now = dateFormat(new Date(), "HH:MM")
+
     //take the exact theater by the cinema system
     const listRap = lstCumRap?.filter((cine) => cine.maCumRap === phimTheoCumRap)
     //function render time by the theater
@@ -92,19 +92,30 @@ export default function TheaterList() {
 
         })
     })
-
+    //get the present time
+    const now = dateFormat(new Date(), "HH:MM")
     //function to render time of movie
     const timeMovieR = (cine) => {
         return cine.slice(0, 6).map((time, index) => {
             const timeMovie = dateFormat(new Date(time.ngayChieuGioChieu), "HH:MM")
-            return (
-                <div className="col-4" key={index}>
-                    <div className={timeMovie <= now ? "time__showtime disabled" : "time__showtime"}>
+            if (timeMovie <= now) {
+                return (
+                    <div className="col-4" key={index}>
+                        <div className="time__showtime disabled">
+                            <span>
+                                {timeMovie}
+                            </span>
+                        </div>
+                    </div>
+                )
+            } else return (
+                <NavLink key={index} className="col-4" to={`/booking/${time.maLichChieu}`}>
+                    <div className="time__showtime">
                         <span>
                             {timeMovie}
                         </span>
                     </div>
-                </div>
+                </NavLink>
             )
         })
     }
@@ -151,7 +162,9 @@ export default function TheaterList() {
                                                 <p className="time__detail">116 phút - TIX 8.6 - IMDb 0</p>
                                             </div>
                                         </div>
-                                        <div className="row collapse "
+                                        <div className="row collapse"
+                                            data-toggle="collapse"
+                                            aria-expanded="false"
                                             id={`${rap.tenPhim}--mobile`}
                                         >
                                             <div className="time__item row">

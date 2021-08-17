@@ -4,6 +4,7 @@ import NewList from './newlist.component'
 import "./news.style.scss"
 
 export default function News() {
+    //function to render section new
     const renderNew = (item) => item.map((listnew, index) => {
         return (
             <div className="new__content" key={index}>
@@ -11,6 +12,7 @@ export default function News() {
             </div>
         )
     })
+    //function to show more the list new
     const toggleShowMore = () => {
         if (document.querySelector(".active .new__content:nth-child(2)")) {
             document.querySelector(".active .new__content:nth-child(2)").style.display = "block"
@@ -20,6 +22,7 @@ export default function News() {
 
 
     }
+    //function to hide the list new
     const toggleHide = () => {
         document.querySelector(".active .new__content:nth-child(2)").style.display = "none"
         document.querySelector(".show__more").style.display = "block"

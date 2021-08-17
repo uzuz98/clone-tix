@@ -1,3 +1,6 @@
+* {
+  transition: all 0.4s;
+}
 body {
   margin: 0;
   padding: 0;
