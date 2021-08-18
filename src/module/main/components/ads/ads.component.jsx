@@ -53,7 +53,7 @@ export default function Ads() {
                     </div>
 
                     <div className="col-12 col-lg-6 ads__app">
-                        <img class="ads__mobile" src={mobile} alt="" />
+                        <img className="ads__mobile" src={mobile} alt="" />
                         <div className="ads__carousel">
                             <Slider {...settings}>
                                 {renderImg()}

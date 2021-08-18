@@ -23,22 +23,3 @@ export default function NewItem(props) {
         </>
     )
 }
-
-{/* <div className="interact__wrapper">
-    <div className="interact__item">
-        <span className="interact__item--group">
-            <img src="/images/like.png" alt="like" />
-            <span className="like__num">
-                83
-            </span>
-        </span>
-    </div>
-    <div className="interact__item">
-        <span className="interact__item--group">
-            <img src="/images/comment.png" alt="comment" />
-            <span className="comment__num">
-                76
-            </span>
-        </span>
-    </div>
-</div> */}

@@ -1,5 +1,5 @@
 import dateFormat from 'dateformat';
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getSearchMovieAction } from '../../../../store/actions/search.action';
@@ -69,7 +69,6 @@ export default function SelectOption(props) {
     const history = useHistory()
     const submitForm = (event) => {
         event.preventDefault()
-        console.log("success");
         history.push(`/booking/${maLichChieu}`)
     }
     return (
@@ -82,7 +81,7 @@ export default function SelectOption(props) {
                     id="film"
                     onChange={() => handleChoiceMovie("film")}
                 >
-                    <option not-required selected disabled hidden>Vui lòng chọn Phim...</option>
+                    <option selected disabled hidden>Vui lòng chọn Phim...</option>
                     {renderOptionMovie()}
                 </select>
             </div>

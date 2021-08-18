@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ModalCard(props) {
-    const { src, trailer } = props
+    const { src } = props
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
 
