@@ -60,7 +60,8 @@ export default function TheaterList() {
     //take the exact theater by the cinema system
     const listRap = lstCumRap?.filter((cine) => cine.maCumRap === phimTheoCumRap)
     //function render time by the theater
-    const renderShowTime = () => listRap?.map((cine) => {
+    const renderShowTime = () => listRap?.map(cine => {
+
         return cine.danhSachPhim.slice(0, 4).map((rap, index) => {
             return (
                 <div className="time__content" key={index} >
@@ -146,9 +147,9 @@ export default function TheaterList() {
                 >
                     <div className="theater__showtime">
                         {
-                            cine.danhSachPhim.slice(0, 4).map((rap) => {
+                            cine.danhSachPhim.slice(0, 4).map((rap, indexS) => {
                                 return (
-                                    <div className="time__content" key={index} >
+                                    <div className="time__content" key={indexS} >
                                         <div
                                             className="time__header collapsed"
                                             data-toggle="collapse"

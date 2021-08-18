@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Slider from 'react-slick';
 import { getMovieListAction } from '../../../../store/actions/movie.action';

@@ -12,16 +12,6 @@ export const mainRoutes = [
     Component: Home,
   },
   {
-    path: "/sign-in",
-    exact: true,
-    Component: SignIn,
-  },
-  {
-    path: "/sign-up",
-    exact: true,
-    Component: SignUp,
-  },
-  {
     path: "/movie-detail/:id",
     exact: true,
     Component: MovieDetail,
@@ -35,5 +25,18 @@ export const mainRoutes = [
     path: "/booking/:id",
     exact: true,
     Component: Booking,
+  },
+];
+
+export const authRoutes = [
+  {
+    path: "/sign-in",
+    exact: true,
+    Component: SignIn,
+  },
+  {
+    path: "/sign-up",
+    exact: true,
+    Component: SignUp,
   },
 ];

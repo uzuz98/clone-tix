@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import { NavLink } from 'react-router-dom'
 import "./header.style.scss"
 import avatar from '../../../../img/avatar.png'
@@ -48,7 +48,45 @@ export default function Header() {
     }
     window.addEventListener("scroll", scrollSticky)
 
+    const renderLogin = () => {
+        const token = localStorage.getItem("token")
+        const hoTen = localStorage.getItem("hoTen")
+        const handleLogOut = () => {
+            alert("Đăng xuất thành công")
+            localStorage.clear()
+            window.location.reload();
+        }
+        if (token) {
+            console.log(hoTen);
+            return (
+                <>
+                    <li className="nav-item">
+                        <span className="
+                                nav-link sign__item" >
+                            <img src={avatar} alt="" />Xin chào, {hoTen}</span>
+                    </li>
+                    <li className="nav-item" onClick={() => handleLogOut()}>
+                        <span className="
+                                nav-link sign__item sign__up">Đăng Xuất</span>
+                    </li>
+                </>
+            )
 
+        } else {
+            return (
+                <>
+                    <li className="nav-item">
+                        <NavLink activeClassName="nav-link-active" className="
+                                nav-link sign__item" to="/sign-in">
+                            <img src={avatar} alt="" />Đăng nhập</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink activeClassName="nav-link-active" className="
+                                nav-link sign__item sign__up" to="/sign-up">Đăng ký</NavLink>
+                    </li>
+                </>)
+        }
+    }
     return (
         <>
             <nav className="navbar header navbar-expand-lg" >
@@ -58,20 +96,11 @@ export default function Header() {
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" onClick={() => toggleOverlay()}>
                     <img src={images} alt="" />
                 </button>
-
                 <div className="navbar__overlay"></div>
 
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav sign">
-                        <li className="nav-item">
-                            <NavLink activeClassName="nav-link-active" className="
-                                nav-link sign__item" to="/sign-in">
-                                <img src={avatar} alt="" />Đăng nhập</NavLink>
-                        </li>
-                        <li className="nav-item">
-                            <NavLink activeClassName="nav-link-active" className="
-                                nav-link sign__item" to="/sign-up">Đăng ký</NavLink>
-                        </li>
+                        {renderLogin()}
                     </ul>
                     <ul className="navbar-nav navbar__menu">
                         <li className="nav-item">
