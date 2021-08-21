@@ -16,16 +16,6 @@ export const mainRoutes = [
     exact: true,
     Component: MovieDetail,
   },
-  {
-    path: "/profile",
-    exact: true,
-    Component: Profile,
-  },
-  {
-    path: "/booking/:id",
-    exact: true,
-    Component: Booking,
-  },
 ];
 
 export const authRoutes = [
@@ -38,5 +28,13 @@ export const authRoutes = [
     path: "/sign-up",
     exact: true,
     Component: SignUp,
+  },
+];
+
+export const profileRoutes = [
+  {
+    path: "/profile",
+    exact: true,
+    Component: Profile,
   },
 ];

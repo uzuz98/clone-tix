@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Slider from 'react-slick';
 import { getMovieListAction } from '../../../../store/actions/movie.action';
@@ -23,17 +23,21 @@ export default function Home() {
     const movieList = useSelector((state) => state.movie.movieList)
     //settings slick carousel
     const settings = {
+        infinite: false,
         dots: false,
-        infinite: true,
         autoplay: true,
         autoplaySpeed: 4000,
-        slidesToShow: 4,
-        slidesToScroll: 4,
         arrows: true,
+        slidesToShow: 4,
+        speed: 500,
+        rows: 2,
+        slidesPerRow: 1,
+        slidesToScroll: 4,
         responsive: [
             {
                 breakpoint: 1024,
                 settings: {
+                    infinite: false,
                     slidesToShow: 4,
                     slidesToScroll: 4,
                     autoplay: true,
@@ -43,6 +47,7 @@ export default function Home() {
             {
                 breakpoint: 736,
                 settings: {
+                    infinite: false,
                     slidesToShow: 3,
                     slidesToScroll: 3,
                     autoplay: false,
@@ -51,7 +56,7 @@ export default function Home() {
             {
                 breakpoint: 480,
                 settings: {
-                    infinite: true,
+                    infinite: false,
                     slidesToShow: 2,
                     slidesToScroll: 2,
                     dots: true,
@@ -67,6 +72,7 @@ export default function Home() {
     }
     const timeLimit = dateFormat(new Date("06/30/2021"), "mm/dd/yyyy")
 
+    const refList = useRef()
     //function to render Movie List is available now before 30/06/2021
     const renderMovieList = movieList.map((movie, index) => {
         const timeComing = dateFormat(new Date(movie.ngayKhoiChieu), "mm/dd/yyyy")
@@ -100,7 +106,7 @@ export default function Home() {
             <section className="searching container">
                 <SelectOption movieList={movieList}></SelectOption>
             </section>
-            <section className="list__movie" id="listMovie">
+            <section className="list__movie" id="listMovie" ref={refList}>
                 <h1 className="text-center">Phim đang chiếu</h1>
                 <div className="container movie__available">
                     <Slider {...settings} className="row list__content">

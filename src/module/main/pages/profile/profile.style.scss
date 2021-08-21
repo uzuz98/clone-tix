@@ -1,0 +1,94 @@
+.main__profile {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 50px;
+}
+.profile__user {
+  p {
+    font-weight: 700;
+    font-size: 20px;
+    color: #44c020;
+    text-shadow: 14px 14px 3px lightgrey;
+    border: 1px solid #ebebec;
+    padding: 20px 0;
+    background-color: white;
+  }
+  .user__content {
+    margin: 50px auto;
+    width: 30%;
+    border: 1px solid #ebebec;
+    border-radius: 15px;
+    padding: 20px 0;
+    background-color: white;
+    box-shadow: 0 0 10px black;
+    .user__item {
+      border-bottom: 1px dashed #ebebec;
+      margin-bottom: 10px;
+      span:nth-child(1) {
+        text-align: right;
+        position: relative;
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          right: -5px;
+          height: 140%;
+          width: 2px;
+          background-color: #ebebec;
+        }
+      }
+      span:nth-child(2) {
+        text-align: left;
+      }
+    }
+  }
+}
+.profile__booking {
+  &-title {
+    p {
+      font-weight: 700;
+      font-size: 20px;
+      color: #44c020;
+      text-shadow: 14px 14px 3px lightgrey;
+      border: 1px solid #ebebec;
+      padding: 20px 0;
+      background-color: white;
+    }
+  }
+  &-history {
+    border: 1px solid #ebebec;
+    background-color: white;
+    margin: 0 auto;
+    margin-top: 20px;
+    box-shadow: 0 0 10px black;
+    thead {
+      tr {
+        th {
+          width: 200px;
+          border-right: 1px solid #ebebec;
+          color: red;
+          font-weight: 700;
+        }
+        th:last-child {
+          border-right: none;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          border: 1px solid #ebebec;
+          font-weight: 700;
+          background-color: white;
+          &:nth-child(1) {
+            color: red;
+            font-weight: 700;
+          }
+        }
+        .row {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
