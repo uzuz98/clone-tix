@@ -13,13 +13,8 @@ export default function Header() {
     let overlayToggle = false
     const toggleClose = () => {
         overlayToggle = !overlayToggle
-
-        if (overlayToggle) {
-            document.querySelector(".navbar__overlay").style.display = "block"
-        } else {
-            document.querySelector(".navbar__overlay").style.display = "none"
-            document.querySelector(".navbar-collapse").classList.remove("show")
-        }
+        document.querySelector(".navbar__overlay").style.display = "none"
+        document.querySelector(".navbar-collapse").classList.remove("show")
     }
 
     //press the menu to open overlay
@@ -38,12 +33,8 @@ export default function Header() {
             behavior: "smooth"
         })
         overlayToggle = !overlayToggle
-        if (overlayToggle) {
-            document.querySelector(".navbar__overlay").style.display = "block"
-        } else {
-            document.querySelector(".navbar__overlay").style.display = "none"
-            document.querySelector(".navbar-collapse").classList.remove("show")
-        }
+        document.querySelector(".navbar__overlay").style.display = "none"
+        document.querySelector(".navbar-collapse").classList.remove("show")
     }
     //add sticky class when scroll out the header
     const scrollSticky = () => {
