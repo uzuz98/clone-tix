@@ -11,24 +11,17 @@ export default function Header() {
     //press the title to scroll to title you pressed
 
     let overlayToggle = false
-    const scrollToId = (id) => {
+    const toggleClose = () => {
         overlayToggle = !overlayToggle
-        const element = document.getElementById(id)
-        if (document.getElementsByTagName("main")) {
-            setTimeout(() => {
-                element?.scrollIntoView({
-                    behavior: "smooth",
-                    top: element.offsetTop
-                })
 
-            });
+        if (overlayToggle) {
+            document.querySelector(".navbar__overlay").style.display = "block"
+        } else {
             document.querySelector(".navbar__overlay").style.display = "none"
             document.querySelector(".navbar-collapse").classList.remove("show")
         }
     }
-    useEffect(() => {
-        scrollToId()
-    }, [])
+
     //press the menu to open overlay
     const toggleOverlay = () => {
         overlayToggle = !overlayToggle
@@ -44,6 +37,13 @@ export default function Header() {
             top: 0,
             behavior: "smooth"
         })
+        overlayToggle = !overlayToggle
+        if (overlayToggle) {
+            document.querySelector(".navbar__overlay").style.display = "block"
+        } else {
+            document.querySelector(".navbar__overlay").style.display = "none"
+            document.querySelector(".navbar-collapse").classList.remove("show")
+        }
     }
     //add sticky class when scroll out the header
     const scrollSticky = () => {
@@ -116,19 +116,19 @@ export default function Header() {
                     <ul className="navbar-nav navbar__menu">
                         <li className="nav-item">
                             <NavHashLink activeClassName="nav-link-active" className="
-                                nav-link" to="/#listMovie" smooth>Lịch Chiếu</NavHashLink>
+                                nav-link" onClick={() => toggleClose()} to="/#listMovie" smooth>Lịch Chiếu</NavHashLink>
                         </li>
                         <li className="nav-item">
                             <NavHashLink activeClassName="nav-link-active" className="
-                                nav-link" to="/#theaterMain" smooth>Cụm Rạp</NavHashLink>
+                                nav-link" onClick={() => toggleClose()} to="/#theaterMain" smooth>Cụm Rạp</NavHashLink>
                         </li>
                         <li className="nav-item">
                             <NavHashLink activeClassName="nav-link-active" className="
-                                nav-link" to="/#news" smooth>Tin tức</NavHashLink>
+                                nav-link" onClick={() => toggleClose()} to="/#news" smooth>Tin tức</NavHashLink>
                         </li>
                         <li className="nav-item">
                             <NavHashLink activeClassName="nav-link-active" className="
-                                nav-link" to="/#ads" smooth>Ứng dụng</NavHashLink>
+                                nav-link" onClick={() => toggleClose()} to="/#ads" smooth>Ứng dụng</NavHashLink>
                         </li>
                     </ul>
 
