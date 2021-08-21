@@ -3,7 +3,6 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProfileAction } from '../../../../store/actions/profile.action'
 import "./profile.style.scss"
-import background from '../../../../img/ads/background.jpg'
 
 export default function Profile() {
     const dispatch = useDispatch()
@@ -11,16 +10,17 @@ export default function Profile() {
         dispatch(getProfileAction())
     }, [])
     const { profileInfo } = useSelector(state => state.profile)
-    const renderBookingList = () => profileInfo.thongTinDatVe?.map((ticket, index) => {
+    const bookingListReserve = profileInfo?.thongTinDatVe?.reverse()
+    const renderBookingList = () => bookingListReserve?.slice(0, 10).map((ticket, index) => {
         return (
             <tr key={index}>
                 <td>{index + 1}</td>
                 <td>{ticket.tenPhim}</td>
                 <td className="row">
-                    {ticket?.danhSachGhe?.map((chair, num) => {
+                    {ticket?.danhSachGhe?.map((chair, indexS) => {
                         return (
                             <>
-                                <span key={num} className="col-3">{chair.tenGhe} </span>
+                                <span key={indexS} className="col-3">{chair.tenGhe} </span>
                             </>
                         )
                     })}
@@ -75,32 +75,11 @@ export default function Profile() {
                         </tr>
                     </thead>
                     <tbody className="history__body">
-                        {/* <tr>
-                            <td>1</td>
-                            <td>Raya</td>
-                            <td className="row">
-                                <span className="col-3">F1 </span>
-                                <span className="col-3">F2 </span>
-                                <span className="col-3">F3 </span>
-                                <span className="col-3">F4 </span>
-                                <span className="col-3">F5 </span>
-                                <span className="col-3">F6 </span>
-                                <span className="col-3">F7 </span>
-                                <span className="col-3">F7 </span>
-                                <span className="col-3">F7 </span>
-                                <span className="col-3">F7 </span>
-                                <span className="col-3">F7 </span>
-                            </td>
-                            <td>{dateFormat(new Date("2021-08-21T13:42:12.93"), "dd/mm/yyyy HH:MM")}
-
-                            </td>
-                            <td>{90000 * 4}</td>
-                            <td>65730</td>
-                        </tr> */}
                         {renderBookingList()}
                     </tbody>
                 </table>
             </section>
+            {console.clear()}
         </>
     )
 }

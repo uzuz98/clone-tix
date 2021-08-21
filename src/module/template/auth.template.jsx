@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../components/header/header.page'
+import Header from '../main/components/header/header.page'
 
 export default function AuthTemplate(props) {
     const { children } = props;
