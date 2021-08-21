@@ -61,7 +61,6 @@ export default function TheaterList() {
     const listRap = lstCumRap?.filter((cine) => cine.maCumRap === phimTheoCumRap)
     //function render time by the theater
     const renderShowTime = () => listRap?.map(cine => {
-
         return cine.danhSachPhim.slice(0, 4).map((rap, index) => {
             return (
                 <div className="time__content" key={index} >

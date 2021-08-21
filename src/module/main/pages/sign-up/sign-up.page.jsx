@@ -5,6 +5,9 @@ import logo from '../../../../img/logo.png'
 import { getSignUpAction } from '../../../../store/actions/auth.action'
 
 export default function SignUp() {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     const dispatch = useDispatch()
     const [userSignUp, setUserSignUp] = useState({
         user: {
@@ -48,18 +51,24 @@ export default function SignUp() {
                 errorMessage = "Tên không được nhập số"
             }
         }
+        if (name === "taiKhoan") {
+            const regex = /^\S*$/
+            if (!regex.test(value)) {
+                errorMessage = "Tài khoản không được có khoảng trắng"
+            }
+        }
         //check the password must have at least 1 letter and 1 number and must be >6 digits and no space
         if (name === "matKhau") {
             const regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/
             if (!regex.test(value)) {
-                errorMessage = "Mật khẩu phải trên 6 ký tự và ít nhất 1 chữ và 1 số"
+                errorMessage = "Mật khẩu trên 6 ký tự, ít nhất 1 chữ, 1 số và không được có khoảng trắng"
             }
         }
         //check the phone number is exact with the Vietnam phone (84 or 0xxx)
         if (name === "soDt") {
             const regex = /(84|0[1-9])+([0-9]{8,9})\b/
             if (!regex.test(value)) {
-                errorMessage = "Số điện thoại không hợp lệ (vd: 09xx hoặc 84xx)"
+                errorMessage = "Số điện thoại không hợp lệ (vd: 0912345678 hoặc 8412345678)"
             }
         }
         //check if the user have typed or not yet

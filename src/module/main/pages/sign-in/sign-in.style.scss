@@ -1,7 +1,9 @@
 .auth {
-  height: 100vh;
+  height: 110vh;
   background-image: url("../../../../img/ads/background.jpg");
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   .sign__in {
     position: absolute;
     top: 50%;
@@ -73,8 +75,9 @@
 }
 @media only screen and (max-width: 736.22px) {
   .auth {
+    height: 150vh;
     .sign__in {
-      top: 60%;
+      top: 90%;
       width: 65%;
       .form {
         margin: 5px 0;
@@ -97,7 +100,10 @@
 
 @media only screen and (max-width: 414.22px) {
   .auth {
+    height: 110vh;
     .sign__in {
+      top: 60%;
+      width: 65%;
       width: 85%;
       &--bottom {
         margin-top: 20px;

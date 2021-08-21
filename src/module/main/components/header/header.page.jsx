@@ -1,26 +1,34 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import "./header.style.scss"
 import avatar from '../../../../img/avatar.png'
 import logo from '../../../../img/logo.png'
 import images from '../../../../img/images.png'
+import { NavHashLink } from 'react-router-hash-link'
 
 
 export default function Header() {
     //press the title to scroll to title you pressed
-    let overlayToggle = false
 
+    let overlayToggle = false
     const scrollToId = (id) => {
         overlayToggle = !overlayToggle
         const element = document.getElementById(id)
-        if (element) {
-            element.scrollIntoView({
-                behavior: "smooth"
-            })
+        if (document.getElementsByTagName("main")) {
+            setTimeout(() => {
+                element?.scrollIntoView({
+                    behavior: "smooth",
+                    top: element.offsetTop
+                })
+
+            });
             document.querySelector(".navbar__overlay").style.display = "none"
             document.querySelector(".navbar-collapse").classList.remove("show")
         }
     }
+    useEffect(() => {
+        scrollToId()
+    }, [])
     //press the menu to open overlay
     const toggleOverlay = () => {
         overlayToggle = !overlayToggle
@@ -40,11 +48,14 @@ export default function Header() {
     //add sticky class when scroll out the header
     const scrollSticky = () => {
         const header = document.querySelector(".header")
-        if (window.scrollY > 100) {
-            header.classList.add("sticky")
-        } else {
-            header.classList.remove("sticky")
+        if (header) {
+            if (window.scrollY > 100) {
+                header?.classList?.add("sticky")
+            } else {
+                header?.classList?.remove("sticky")
+            }
         }
+
     }
     window.addEventListener("scroll", scrollSticky)
 
@@ -104,20 +115,20 @@ export default function Header() {
                     </ul>
                     <ul className="navbar-nav navbar__menu">
                         <li className="nav-item">
-                            <NavLink activeClassName="nav-link-active" className="
-                                nav-link" to="/#listMovie" onClick={() => scrollToId("listMovie")}>Lịch Chiếu</NavLink>
+                            <NavHashLink activeClassName="nav-link-active" className="
+                                nav-link" to="/#listMovie" smooth>Lịch Chiếu</NavHashLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink activeClassName="nav-link-active" className="
-                                nav-link" to="/#theaterMain" onClick={() => scrollToId("theaterMain")}>Cụm Rạp</NavLink>
+                            <NavHashLink activeClassName="nav-link-active" className="
+                                nav-link" to="/#theaterMain" smooth>Cụm Rạp</NavHashLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink activeClassName="nav-link-active" className="
-                                nav-link" to="/#news" onClick={() => scrollToId("news")}>Tin tức</NavLink>
+                            <NavHashLink activeClassName="nav-link-active" className="
+                                nav-link" to="/#news" smooth>Tin tức</NavHashLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink activeClassName="nav-link-active" className="
-                                nav-link" to="/#ads" onClick={() => scrollToId("ads")}>Ứng dụng</NavLink>
+                            <NavHashLink activeClassName="nav-link-active" className="
+                                nav-link" to="/#ads" smooth>Ứng dụng</NavHashLink>
                         </li>
                     </ul>
 

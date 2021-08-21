@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./sign-in.style.scss"
 import logo from '../../../../img/logo.png'
 import { useState } from 'react'
@@ -17,23 +17,32 @@ export default function SignIn() {
             matKhau: "",
         }
     })
+    //go to the top after render
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     const history = useHistory()
     const dispatch = useDispatch()
+
     const handleChange = (event) => {
         const { value, name } = event.target
         let errorMessage = "";
+        //validation the empty input
         if (value.trim() === "") {
             if (name === "taiKhoan") {
                 errorMessage = "Tài khoản không được bỏ trống";
             } else errorMessage = "Mật khẩu không được bỏ trống";
         }
+        //error when the input is empty
         let error = { ...userLogin.error, [name]: errorMessage };
+        //set set value for the user
         let user = { ...userLogin.user, [name]: value };
         setUserLogin({
             error: error,
             user: user,
         })
     }
+    //call api log in when submit form
     const handleSubmitForm = (event) => {
         event.preventDefault()
         dispatch(getSignInAction(userLogin.user, history))
