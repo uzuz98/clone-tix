@@ -9,7 +9,6 @@ import { NavHashLink } from 'react-router-hash-link'
 
 export default function Header() {
     //press the title to scroll to title you pressed
-
     let overlayToggle = false
     const toggleClose = () => {
         overlayToggle = !overlayToggle

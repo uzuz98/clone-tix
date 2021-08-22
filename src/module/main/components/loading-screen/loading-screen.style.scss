@@ -1,0 +1,13 @@
+.loading__page {
+  margin: 0 auto;
+  text-align: center;
+}
+.loading__screen {
+  width: 700px;
+}
+
+@media only screen and (max-width: 414px) {
+  .loading__screen {
+    width: 300px;
+  }
+}
