@@ -63,13 +63,12 @@ export default function Header() {
             return (
                 <>
                     <li className="nav-item">
-                        <span className="
-                                nav-link sign__item" >
-                            <img src={avatar} alt="" />Xin chào, {hoTen}</span>
+                        <NavLink to="/profile"
+                            className="nav-link sign__item" onClick={() => toggleClose()} >
+                            <img src={avatar} alt="" />Xin chào, {hoTen}</NavLink>
                     </li>
                     <li className="nav-item" onClick={() => handleLogOut()}>
-                        <span className="
-                                nav-link sign__item sign__up">Đăng Xuất</span>
+                        <span className="nav-link sign__item sign__up">Đăng Xuất</span>
                     </li>
                 </>
             )
@@ -98,7 +97,7 @@ export default function Header() {
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" onClick={() => toggleOverlay()}>
                     <img src={images} alt="" />
                 </button>
-                <div className="navbar__overlay"></div>
+                <div className="navbar__overlay" onClick={() => toggleClose()}></div>
 
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav sign">
