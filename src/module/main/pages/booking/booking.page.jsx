@@ -50,6 +50,7 @@ export default function Booking() {
         window.scrollTo(0, 0)
     }, [])
     const handleBooked = () => {
+        setModal(!modal)
         const listChoice = danhSachGhe.filter(chair => chair.dangChon)
         dispatch(getBookingAction(thongTinPhim.maLichChieu, listChoice, history))
     }
@@ -100,15 +101,14 @@ export default function Booking() {
                     </NavLink>
                 </div>
                 <div className="booking__center">
-                    <h3>01 <span>CHỌN VÉ & THANH TOÁN</span></h3>
-                    <h3>02 <span>KẾT QUẢ ĐẶT VÉ</span></h3>
+                    <h3>CHỌN VÉ & THANH TOÁN</h3>
                 </div>
                 <div className="booking__user">
                     <img src={avatar} alt="" /><span>Xin chào, {user}</span>
                 </div>
             </div>
             <div className="booking__content row">
-                <div className="booking__left col-9">
+                <div className="booking__left col-12 col-sm-9">
                     <div className="booking__left--content">
                         <div className="booking__left--title">
                             <img src={thongTinPhim?.hinhAnh} alt="" />
@@ -126,25 +126,27 @@ export default function Booking() {
                     </div>
                     <div className="booking__left--infochair">
                         <p>Thông tin màu ghế</p>
-                        <div className="info__chair--content">
-                            <button className="btn chair__item"></button>
-                            <span>Ghế thường - 75.000 VND</span>
-                        </div>
-                        <div className="info__chair--content">
-                            <button className="btn btn-info chair__item"></button>
-                            <span>Ghế VIP - 90.000 VND</span>
-                        </div>
-                        <div className="info__chair--content">
-                            <button disabled className="btn btn-danger chair__item"></button>
-                            <span>Ghế đã được đặt</span>
-                        </div>
-                        <div className="info__chair--content">
-                            <button className="btn btn-success chair__item"></button>
-                            <span>Ghế đang chọn</span>
+                        <div className="info__chair--item">
+                            <div className="info__chair--content">
+                                <button className="btn chair__item"></button>
+                                <span>Ghế thường - 75.000 VND</span>
+                            </div>
+                            <div className="info__chair--content">
+                                <button className="btn btn-info chair__item"></button>
+                                <span>Ghế VIP - 90.000 VND</span>
+                            </div>
+                            <div className="info__chair--content">
+                                <button disabled className="btn btn-danger chair__item"></button>
+                                <span>Ghế đã được đặt</span>
+                            </div>
+                            <div className="info__chair--content">
+                                <button className="btn btn-success chair__item"></button>
+                                <span>Ghế đang chọn</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div className="booking__right col-3">
+                <div className="booking__right col-12 col-sm-3">
                     <div className="booking__right--content">
                         <div className="booking__right--title">
                             <p>{totalMoney === 0 ? "Tổng giá vé" : totalMoney + " VND"}</p>

@@ -70,6 +70,8 @@
           .row {
             width: 50%;
             margin-top: 20px;
+            height: 165px;
+            overflow-y: scroll;
             p {
               text-align: right;
               margin-top: 0px;
@@ -209,4 +211,257 @@
 }
 .active__modal {
   overflow: hidden;
+}
+
+@media only screen and (max-width: 1366px) {
+  .booking {
+    &__content {
+      margin-right: 0 !important;
+      margin-left: 0 !important;
+      .booking__left {
+        &--listchair {
+          width: 70%;
+        }
+        &--infochair {
+          top: 23%;
+          right: 5px;
+          font-size: 12px;
+        }
+      }
+      .booking__right {
+        &--content {
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .booking {
+    &__header {
+      .booking__center {
+        h3 {
+          font-size: 20px;
+        }
+      }
+    }
+    &__content {
+      .booking__left {
+        &--screen {
+          img {
+            width: 600px;
+          }
+        }
+        &--listchair {
+          button {
+            width: 24px;
+            padding: 0;
+            margin: 4px;
+            height: 24px;
+            font-size: 11px;
+          }
+        }
+        &--infochair {
+          top: 105%;
+          right: 13%;
+          p {
+            display: none;
+          }
+          .info__chair--item {
+            display: flex;
+            .info__chair--content {
+              margin: 0 5px;
+            }
+          }
+        }
+      }
+      .booking__right {
+        &--content {
+          .booking__right--item {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    .modal__content {
+      top: 30%;
+      width: 32%;
+      height: 30%;
+    }
+  }
+}
+
+@media only screen and (max-width: 736px) {
+  .booking {
+    &__header {
+      .booking__center {
+        h3 {
+        }
+      }
+    }
+    &__content {
+      .booking__left {
+        &--screen {
+          img {
+            width: 500px;
+          }
+        }
+        &--listchair {
+          width: 90%;
+          button {
+            margin: 2px;
+          }
+        }
+        &--infochair {
+          right: 6%;
+          .info__chair--item {
+            .info__chair--content {
+              font-size: 10px;
+            }
+          }
+        }
+      }
+      .booking__right {
+        &--content {
+          p {
+            margin-top: 0;
+            margin-bottom: 10px;
+          }
+          .booking__right {
+            &--title {
+              p {
+                font-size: 10px;
+              }
+              hr {
+                margin-bottom: 0;
+              }
+            }
+            &--item {
+              font-size: 10px;
+            }
+            &--item-chair {
+              font-size: 10px;
+              .row {
+                margin-top: 0;
+                height: 100px;
+                margin-right: 0;
+                margin-left: 0;
+              }
+            }
+            &--item-payment {
+              font-size: 10px;
+            }
+          }
+          .buy__ticket {
+            .btn__buy {
+              margin-top: 5px;
+            }
+          }
+        }
+      }
+    }
+    .overlay {
+      height: 1000vh;
+    }
+    .modal__content {
+      top: 50%;
+      width: 40%;
+      height: 40%;
+      .modal__card {
+        padding: 10px 0;
+        &--title {
+          margin: 20px 0;
+          &-info {
+            width: 40px;
+            margin: 0 auto -40px !important;
+            height: 40px;
+            line-height: 40px;
+          }
+          p {
+            margin: 0;
+            margin-top: 50px;
+            font-size: 11px;
+          }
+        }
+        &--button {
+          button {
+            font-size: 10px;
+          }
+          #cancelTicket {
+            padding: 6px 30px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .booking {
+    &__header {
+      width: 100%;
+      .booking__center {
+        h3 {
+          font-size: 11px;
+        }
+      }
+      .booking__user {
+        img {
+          width: 20px;
+        }
+        span {
+          font-size: 10px;
+        }
+      }
+    }
+    &__content {
+      margin-top: 80px;
+      .booking__left {
+        &--cinema {
+          font-size: 10px;
+        }
+        &--screen {
+          img {
+            width: 350px;
+          }
+        }
+        &--listchair {
+          width: 85%;
+          button {
+            margin: 1px;
+            width: 18px;
+            height: 18px;
+            font-size: 8px;
+          }
+        }
+        &--infochair {
+          right: 0%;
+          .info__chair--item {
+            .info__chair--content {
+              font-size: 8px;
+              margin: 0 1px;
+            }
+          }
+        }
+      }
+      .booking__right {
+        position: unset;
+        flex: unset;
+        max-width: 100%;
+        margin-top: 100px;
+      }
+    }
+    .modal__content {
+      top: 70%;
+      width: 60%;
+      height: 30%;
+      .modal__card {
+        &--button {
+          button {
+            margin: 0 10px;
+          }
+        }
+      }
+    }
+  }
 }

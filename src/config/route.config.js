@@ -1,7 +1,6 @@
 import HomeAdmin from "../module/admin/page/home/home-admin.page";
 import MovieAdmin from "../module/admin/page/movie/movie-admin.page";
 import UserAdmin from "../module/admin/page/user/user-admin.page";
-import Booking from "../module/main/pages/booking/booking.page";
 import Home from "../module/main/pages/homes/home.page";
 import MovieDetail from "../module/main/pages/movie-detail/movie-detail.page";
 import Profile from "../module/main/pages/profile/profile.page";

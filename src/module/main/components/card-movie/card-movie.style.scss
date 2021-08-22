@@ -1,3 +1,27 @@
+.card__title {
+  .nav-tabs {
+    border-bottom: none;
+    justify-content: center;
+    .nav-link {
+      border: none;
+      h1 {
+        font-size: 1rem;
+        color: #473c3a;
+        text-shadow: -8px -4px 6px lightgrey;
+        margin: 20px 0;
+      }
+    }
+    .show,
+    .active {
+      h1 {
+        font-size: 1rem;
+        color: #fa5238;
+        text-shadow: -8px -4px 6px lightgrey;
+        margin: 20px 0;
+      }
+    }
+  }
+}
 .card__movie {
   .cardmovie__item {
     position: relative;
@@ -88,12 +112,6 @@
 }
 .list__movie {
   margin: 40px 0;
-  h1 {
-    font-size: 2.5rem;
-    color: #fa5238;
-    text-shadow: -8px -4px 6px lightgrey;
-    margin: 20px 0;
-  }
 }
 .list__content {
   margin-bottom: 45px;
@@ -109,11 +127,11 @@
 @media only screen and (max-width: 1366px) {
   .list__movie {
     .list__content {
-      height: 580px;
       margin: 0;
       .slick-list {
         height: 100%;
         .card__item {
+          margin-bottom: 70px;
           .card__overlay {
             opacity: 1;
             .btn__buyTicket {
@@ -145,6 +163,7 @@
       }
     }
     .card__item {
+      margin-bottom: 0 !important;
       .card__overlay {
         opacity: 1;
         .playMovie {
@@ -162,11 +181,11 @@
 @media only screen and (max-width: 736px) {
   .list__movie {
     .list__content {
-      height: 430px;
       .slick-list {
         padding: 0 8px;
       }
       .card__item {
+        height: 420px;
         .playMovie {
           img {
             width: 50px;
@@ -178,7 +197,7 @@
         }
         .card__overlay {
           .btn__buyTicket {
-            bottom: 140px !important;
+            bottom: 10px !important;
           }
         }
       }
@@ -196,32 +215,13 @@
 
 @media only screen and (max-width: 414px) {
   .list__movie {
-    .list__content {
-      height: 552px;
-      .slick-next,
-      .slick-prev {
-        top: 96%;
-      }
-      .slick-next {
-        right: 43%;
-      }
-      .slick-prev {
-        left: 40%;
-      }
-      .slick-dots {
-        bottom: 35px;
-        li {
-          width: 3px;
-        }
-      }
-    }
     .container {
       padding-left: 0;
       .card__item {
-        height: 480px;
+        margin-bottom: 40px !important;
         .card__overlay {
           .btn__buyTicket {
-            bottom: 0px !important;
+            bottom: -30px !important;
           }
         }
       }
