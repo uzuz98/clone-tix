@@ -73,7 +73,6 @@ export default function MovieList(props) {
                 settings: {
                     infinite: false,
                     slidesToShow: 2,
-                    slidesToScroll: 2,
                     dots: true,
                     autoplay: true,
                     autoplaySpeed: 5000,

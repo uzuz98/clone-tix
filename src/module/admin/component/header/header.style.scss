@@ -1,0 +1,39 @@
+.admin__main {
+  padding-left: 0 !important;
+  padding-right: 0px !important;
+}
+.header__admin--info {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 80px;
+  border-bottom: 1px solid black;
+  box-shadow: 0 0 5px black;
+  img {
+    width: 50px;
+  }
+  h3 {
+    cursor: pointer;
+    span {
+      color: #fb4226;
+    }
+  }
+  .admin__logo {
+    border-radius: 50%;
+    width: 30px;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  .toggle__menu {
+    cursor: pointer;
+  }
+  .info__menu {
+    opacity: 0;
+    position: absolute;
+    padding: 0 10px;
+    top: 79px;
+    right: 30px;
+    border: 1px solid black;
+    border-radius: 0 0 0 10px;
+  }
+}

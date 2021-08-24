@@ -48,7 +48,7 @@ export const adminRoutes = [
     Component: HomeAdmin,
   },
   {
-    path: "/admin/user-managemnet",
+    path: "/admin/user-management",
     exact: "true",
     Component: UserAdmin,
   },

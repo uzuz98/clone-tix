@@ -1,0 +1,120 @@
+.movie__management--list {
+  width: 100%;
+  .movie__manage--action {
+    margin-left: 205px;
+  }
+
+  input {
+    width: 20%;
+    margin: 10px 0;
+  }
+  .btn__change {
+    text-align: center;
+    margin: 10px 0;
+  }
+  table {
+    margin: 0 auto;
+    box-shadow: 0 0 10px black;
+    thead {
+      tr {
+        th {
+          padding-left: 10px;
+          border: 1px solid black;
+          width: 160px;
+        }
+        .list__description {
+          width: 400px;
+        }
+      }
+    }
+    tbody {
+      tr {
+        .description {
+          font-size: 14px;
+          font-size: 14px;
+          display: -webkit-box;
+          -webkit-line-clamp: 6;
+          -webkit-box-orient: vertical;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          height: 127px;
+          border: none;
+          border-top: 1px solid black;
+        }
+        td {
+          vertical-align: top;
+          padding-left: 10px;
+          border: 1px solid black;
+        }
+      }
+    }
+  }
+  .error__search {
+    text-align: center;
+    margin: 20px auto;
+    width: 50%;
+    padding: 10px 0;
+    border: 1px solid black;
+    box-shadow: 0 0 10px black;
+    color: #fb4226;
+    font-weight: 700;
+  }
+  .rating {
+    width: 100px;
+  }
+}
+.movie__manage--modal {
+  position: absolute;
+  top: -6%;
+  left: -9%;
+  height: 50%;
+  z-index: 9999999999999;
+  .overlay__modal {
+    overflow: hidden;
+    width: 102vw;
+    height: 102vh;
+    background-color: rgba($color: black, $alpha: 0.7);
+  }
+  .modal__content {
+    position: absolute;
+    top: 10%;
+    background: white;
+    margin: 0 80px;
+    height: 800px;
+    padding: 40px 0;
+    border-radius: 20px 20px 0 0;
+    .form {
+      margin: 50px 0;
+
+      .form__group {
+        label {
+          width: 180px;
+        }
+        input {
+          width: 500px;
+        }
+        #moTa {
+          vertical-align: top;
+        }
+      }
+    }
+    .submit__form {
+      text-align: center;
+      position: absolute;
+      top: 60%;
+      right: 17%;
+    }
+    .submit__check {
+      display: none;
+      margin: 20px auto;
+      text-align: center;
+      position: absolute;
+      bottom: 17%;
+      right: 9%;
+      p {
+        color: #fb4226;
+        font-weight: 700;
+      }
+    }
+  }
+}

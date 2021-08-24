@@ -2,6 +2,7 @@ import dateFormat from 'dateformat'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProfileAction } from '../../../../store/actions/profile.action'
+import PaginationComponent from '../../components/pagination/pagination.component'
 import "./profile.style.scss"
 
 export default function Profile() {
@@ -11,58 +12,42 @@ export default function Profile() {
     useEffect(() => {
         dispatch(getProfileAction())
     }, [])
-    //set the first page to vỉew
-    const [currentPage, setCurrentPage] = useState(1);
-    //set the length of ticket per page
-    const [ticketPerPages] = useState(10);
-    //find the last ticket
-    const indexOfLastTicket = currentPage * ticketPerPages;
-    //find the first ticket
-    const indexOfFirstTicket = indexOfLastTicket - ticketPerPages;
     //take the last booking to the top
     const profileInfoSorted = profileInfo?.thongTinDatVe?.sort((a, b) => {
         return new Date(dateFormat(new Date(b.ngayDat))) - new Date(dateFormat(new Date(a.ngayDat)))
     })
-    //get the current page to view
-    const currentTicketPage = profileInfoSorted?.slice(indexOfFirstTicket, indexOfLastTicket);
-    const pageNumbers = [];
-    const totalPageNumber = Math.ceil(profileInfo?.thongTinDatVe?.length / ticketPerPages)
-    //push the page by the total page to the page number for change page
-    for (let i = 1; i <= totalPageNumber; i++) {
-        pageNumbers.push(i);
-    }
+    const tHead = () => (
+        <>
+            <th>Số thứ tự</th>
+            <th>Tên phim</th>
+            <th>Danh Sách Ghế</th>
+            <th>Ngày giờ đặt</th>
+            <th>Giá vé</th>
+            <th>Mã vé</th>
+        </>
+    )
+    const tBody = (movie, index) => (
+        <tr key={index}>
+            <td>{index + 1}</td>
+            <td>{movie.tenPhim}</td>
+            <td className="row">
+                {movie?.danhSachGhe?.map((chair, indexS) => {
+                    return (
+                        <>
+                            <span key={indexS} className="col-6 col-sm-3">{chair.tenGhe} </span>
+                        </>
+                    )
+                })}
+            </td>
+            <td>{dateFormat(new Date(movie.ngayDat), "dd/mm/yyyy HH:MM")}
 
-    //function to render the button to change page
-    const renderBtn = () => pageNumbers.map((number, index) => (
-        <button key={index} className={currentPage === number && "active"} onClick={() => setCurrentPage(number)} >
-            {number}
-        </button>
-    ))
-    //function to render list ticket per page
-    const renderListTicket = () => currentTicketPage?.map((ticket, index) => {
-        return (
-            <tr key={index}>
-                <td>{index + 1}</td>
-                <td>{ticket.tenPhim}</td>
-                <td className="row">
-                    {ticket?.danhSachGhe?.map((chair, indexS) => {
-                        return (
-                            <>
-                                <span key={indexS} className="col-6 col-sm-3">{chair.tenGhe} </span>
-                            </>
-                        )
-                    })}
-                </td>
-                <td>{dateFormat(new Date(ticket.ngayDat), "dd/mm/yyyy HH:MM")}
-
-                </td>
-                <td>
-                    {ticket.giaVe * ticket.danhSachGhe.length}
-                </td>
-                <td>{ticket.maVe}</td>
-            </tr>
-        )
-    })
+            </td>
+            <td>
+                {movie.giaVe * movie.danhSachGhe.length}
+            </td>
+            <td>{movie.maVe}</td>
+        </tr>
+    )
     return (
         <>
             <section className="profile__user text-center">
@@ -90,24 +75,7 @@ export default function Profile() {
                 <div className="profile__booking-title">
                     <p>Thông tin lịch sử đặt vé</p>
                 </div>
-                <div className="button">
-                    {renderBtn()}
-                </div>
-                <table className="profile__booking-history">
-                    <thead className="history__title">
-                        <tr>
-                            <th>Số thứ tự</th>
-                            <th>Tên phim</th>
-                            <th>Danh Sách Ghế</th>
-                            <th>Ngày giờ đặt</th>
-                            <th>Giá vé</th>
-                            <th>Mã vé</th>
-                        </tr>
-                    </thead>
-                    <tbody className="history__body">
-                        {renderListTicket()}
-                    </tbody>
-                </table>
+                <PaginationComponent listItem={profileInfoSorted} tHead={tHead} tBody={tBody} tableName="profile__booking-history" headName="history__title" bodyName="history__body" />
             </section>
 
         </>
