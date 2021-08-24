@@ -23,7 +23,7 @@ export const choiceChairAction = (chair) => {
 export const getBookingAction =
   (maLichChieu, danhSachVe, history) => async () => {
     try {
-      const res = await getBookingApi(maLichChieu, danhSachVe);
+      await getBookingApi(maLichChieu, danhSachVe);
       alert("Đặt vé thành công");
       history.push("/profile");
     } catch (error) {

@@ -1,0 +1,12 @@
+.admin__main {
+  .home__admin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    span {
+      color: #fb4226;
+    }
+  }
+}

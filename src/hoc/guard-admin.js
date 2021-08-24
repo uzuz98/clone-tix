@@ -7,7 +7,7 @@ export default function GuardAdmin(props) {
   if (localStorage.getItem("userLogin")) {
     user = JSON.parse(localStorage.getItem("userLogin"));
   }
-  if (user.maLoaiNguoiDung === "QuantTri") {
+  if (user?.maLoaiNguoiDung === "QuanTri") {
     return children;
   } else {
     alert("Bạn không có quyền truy cập vào trang Admin");

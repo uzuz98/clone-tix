@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getMovieListAction } from '../../../../store/actions/movie.action';
 import Banner from '../../components/bannner/banner.component';
@@ -8,7 +8,6 @@ import News from '../../components/news/new.component';
 import SelectOption from '../../components/select-option/select-option';
 import Ads from '../../components/ads/ads.component';
 import MovieList from '../../components/movie-list/movie-list.component';
-import LoadingScreen from '../../components/loading-screen/loadgin-screen.component';
 
 
 export default function Home() {
