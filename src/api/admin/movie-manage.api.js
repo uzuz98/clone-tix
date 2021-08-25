@@ -12,3 +12,14 @@ export const getMovieManageApi = (form__data) => {
     },
   });
 };
+
+export const getMovieDeleteApi = (id) => {
+  let user = localStorage.getItem("token");
+  return axios({
+    method: METHOD_HTTP.DELETE,
+    url: `${baseUrl}/QuanLyPhim/XoaPhim?MaPhim=${id}`,
+    headers: {
+      Authorization: `Bearer ${user}`,
+    },
+  });
+};

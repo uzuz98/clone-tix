@@ -1,6 +1,8 @@
 import HomeAdmin from "../module/admin/page/home/home-admin.page";
-import MovieAdmin from "../module/admin/page/movie/movie-admin.page";
-import UserAdmin from "../module/admin/page/user/user-admin.page";
+import AddMovie from "../module/admin/page/movie-add/add-movie.component";
+import EditMovie from "../module/admin/page/movie-edit/edit-movie.component";
+import UserAdd from "../module/admin/page/user-add/add-user.component";
+import UserEdit from "../module/admin/page/user-edit/edit-user.component";
 import Home from "../module/main/pages/homes/home.page";
 import MovieDetail from "../module/main/pages/movie-detail/movie-detail.page";
 import Profile from "../module/main/pages/profile/profile.page";
@@ -48,13 +50,23 @@ export const adminRoutes = [
     Component: HomeAdmin,
   },
   {
-    path: "/admin/user-management",
+    path: "/admin/movie-management/add",
     exact: "true",
-    Component: UserAdmin,
+    Component: AddMovie,
   },
   {
-    path: "/admin/movie-management",
+    path: "/admin/movie-management/edit",
     exact: "true",
-    Component: MovieAdmin,
+    Component: EditMovie,
+  },
+  {
+    path: "/admin/user-management/add",
+    exact: "true",
+    Component: UserAdd,
+  },
+  {
+    path: "/admin/user-management/edit",
+    exact: "true",
+    Component: UserEdit,
   },
 ];
