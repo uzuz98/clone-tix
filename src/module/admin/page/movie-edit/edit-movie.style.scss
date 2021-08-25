@@ -1,5 +1,11 @@
 .movie__management--list {
   width: 100%;
+  margin-top: 50px;
+  .movie__manage--header {
+    color: #fb4226;
+    font-weight: 700;
+    font-size: 20px;
+  }
   .movie__manage--action {
     margin-left: 205px;
   }
@@ -46,6 +52,43 @@
           padding-left: 10px;
           border: 1px solid black;
         }
+        .modal__delete {
+          position: absolute;
+          top: 0%;
+          left: -9%;
+          height: 50%;
+          z-index: 9999999999999;
+          .delete__overlay {
+            overflow: hidden;
+            width: 102vw;
+            height: 102vh;
+            background-color: rgba($color: black, $alpha: 0.7);
+          }
+          .delete__content {
+            left: 50%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            top: 50%;
+            background: white;
+            height: 400px;
+            padding: 40px;
+            border-radius: 20px;
+            .delete__header {
+              h3 {
+                color: red;
+                margin-bottom: 50px;
+              }
+              p {
+                font-weight: 700;
+                span {
+                  color: #fb4226;
+                }
+              }
+            }
+            .delete__buton {
+            }
+          }
+        }
       }
     }
   }
@@ -65,7 +108,7 @@
 }
 .movie__manage--modal {
   position: absolute;
-  top: -6%;
+  top: 0%;
   left: -9%;
   height: 50%;
   z-index: 9999999999999;
