@@ -23,3 +23,15 @@ export const getMovieDeleteApi = (id) => {
     },
   });
 };
+
+export const getMovieAddApi = (form__data) => {
+  let user = localStorage.getItem("token");
+  return axios({
+    method: METHOD_HTTP.POST,
+    url: `${baseUrl}/QuanLyPhim/ThemPhimUploadHinh`,
+    data: form__data,
+    headers: {
+      Authorization: `Bearer ${user}`,
+    },
+  });
+};

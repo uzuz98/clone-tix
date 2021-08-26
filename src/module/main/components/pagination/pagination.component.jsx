@@ -27,7 +27,6 @@ export default function PaginationComponent(props) {
     const renderMovieListPerPage = () => currentPageToView?.map((movie, index) => (
         tBody(movie, index)
     ))
-
     return (
         <>
             <div className="btn__change">
