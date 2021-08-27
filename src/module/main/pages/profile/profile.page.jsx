@@ -13,6 +13,7 @@ export default function Profile() {
     const [isLoading, setIsLoading] = useState(false)
     useEffect(() => {
         dispatch(getProfileAction())
+        window.scrollTo(0, 0)
         setTimeout(() => {
             setIsLoading(true)
         }, 4000);

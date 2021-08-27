@@ -9,6 +9,7 @@ import { useHistory } from 'react-router-dom'
 export default function AddMovie() {
     const dispatch = useDispatch()
     const history = useHistory()
+    //movie detiail
     const [movieAdd, setMovieAdd] = useState({
         maPhim: "",
         tenPhim: "",
@@ -18,14 +19,16 @@ export default function AddMovie() {
         ngayKhoiChieu: "",
         maNhom: "GP09",
     })
+    //update the movie detail
     const handleChange = (event) => {
         const { id, value } = event.target
-
+        //check if id = hinhAnh will change the value to type file
         if (id === "hinhAnh") {
             setMovieAdd({
                 ...movieAdd,
                 [id]: event.target.files[0]
             })
+            //render the image
             document.getElementById("src__hinhAnh").src = URL.createObjectURL(event.target.files[0])
         } else {
             setMovieAdd({
@@ -34,11 +37,12 @@ export default function AddMovie() {
             })
         }
     }
-
+    //call api to create new movie when submit form
     const handleSubmitForm = (event) => {
         event.preventDefault()
         const formData = new FormData()
         for (const key in movieAdd) {
+            //change type date of ngayKhoiChieu to dd/mm/yyyy
             if (key === "ngayKhoiChieu") {
                 formData.append(key, dateFormat(new Date(movieAdd[key]), 'dd/mm/yyyy'))
             } else {
@@ -55,15 +59,15 @@ export default function AddMovie() {
             <form onSubmit={handleSubmitForm} className="form">
                 <div className="form__group">
                     <label htmlFor="tenPhim">Tên Phim</label>
-                    <input value={movieAdd.tenPhim} onChange={handleChange} className="form__item" type="text" id="tenPhim" />
+                    <input required value={movieAdd.tenPhim} onChange={handleChange} className="form__item" type="text" id="tenPhim" />
                 </div>
                 <div className="form__group">
                     <label htmlFor="trailer">Trailer</label>
-                    <input value={movieAdd.trailer} onChange={handleChange} className="form__item" type="text" id="trailer" />
+                    <input required value={movieAdd.trailer} onChange={handleChange} className="form__item" type="text" id="trailer" />
                 </div>
                 <div className="form__group">
                     <label htmlFor="hinhAnh">Hình ảnh</label>
-                    <input onChange={handleChange} className="form__item" type="file" id="hinhAnh" />
+                    <input required onChange={handleChange} className="form__item" type="file" id="hinhAnh" />
                 </div>
                 <img id="src__hinhAnh" style={{ width: 100, height: 100, marginBottom: 30, marginLeft: 150 }} src="#" alt="your image" />
 
@@ -73,11 +77,11 @@ export default function AddMovie() {
                 </div>
                 <div className="form__group">
                     <label htmlFor="ngayKhoiChieu">Ngày khởi chiếu</label>
-                    <input value={movieAdd.ngayKhoiChieu} onChange={handleChange} className="form__item" type="date" id="ngayKhoiChieu" />
+                    <input required value={movieAdd.ngayKhoiChieu} onChange={handleChange} className="form__item" type="date" id="ngayKhoiChieu" />
                 </div>
                 <div className="form__group">
                     <label htmlFor="maNhom">Mã Nhóm</label>
-                    <input disabled value={movieAdd.maNhom} className="form__item" type="text" id="maNhom" />
+                    <input required disabled value={movieAdd.maNhom} className="form__item" type="text" id="maNhom" />
                 </div>
                 <div className="submit__form">
                     <button className="btn__submit btn btn-success">Xác nhận</button>

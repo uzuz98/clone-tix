@@ -31,6 +31,7 @@ export default function SignUp() {
     })
     //call the checkvalid when the valid is re update
     useEffect(() => {
+        window.scrollTo(0, 0)
         checkIsValid()
     }, [userSignUp.valid])
     //function to check when the user type on the form option

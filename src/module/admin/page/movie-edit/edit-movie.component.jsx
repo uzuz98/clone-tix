@@ -45,7 +45,7 @@ export default function EditMovie() {
         if (modalDelete) {
             return (
                 <div id="delete" className="modal__delete text-center">
-                    <div className="delete__overlay"></div>
+                    <div className="delete__overlay" onClick={toggleDelete}></div>
                     <div className="delete__content">
                         <div className="delete__header">
                             <h3>Vui lòng xác nhận trước khi ấn nút XÓA</h3>
@@ -122,7 +122,9 @@ export default function EditMovie() {
     }
     //find the movie with the value input search
     const movieListFilter = movieList?.filter(movie =>
-        movie?.tenPhim.toLowerCase().includes(searching.toLowerCase())
+        movie?.tenPhim?.toLowerCase().includes(searching.toLowerCase())
+        ||
+        movie.maPhim?.toString().includes(searching)
     )
     //DOM to the submit button
     const submitRef = useRef()
@@ -152,7 +154,7 @@ export default function EditMovie() {
         }
     }
     //sub mit form and make a form data to sent it to server and close the modal
-    const handleSumbitForm = (event, toggle) => {
+    const handleSumbitForm = (event) => {
         event.preventDefault()
         let formData = new FormData()
         for (let key in tableModal) {
@@ -175,7 +177,7 @@ export default function EditMovie() {
                             type="search"
                             value={searching}
                             onChange={handleSearch}
-                            placeholder="Tìm phim theo tên phim...." />
+                            placeholder="Tìm phim theo tên/mã Phim" />
                     </div>
                     {/* check the list filter if correct will show the result, show p tag if can't find anything */}
                     {
@@ -189,7 +191,7 @@ export default function EditMovie() {
                     {/* setting the div modal to show */}
                     {
                         modal && <div className="movie__manage--modal">
-                            <div className="overlay__modal"></div>
+                            <div className="overlay__modal" onClick={toggleModal}></div>
                             <div className="modal__content">
                                 <table>
                                     <thead>
@@ -221,33 +223,33 @@ export default function EditMovie() {
                                     </tbody>
                                 </table>
                                 <form action="" onSubmit={handleSumbitForm} className="form row text-center">
-                                    <div className="form__group col-6">
+                                    <div className="form__group col-12 col-sm-6">
                                         <label htmlFor="hinhAnh" >Hình Ảnh</label>
                                         <input name="hinhAnh" type="file" id="hinhAnh" onChange={handleChange} />
                                     </div>
-                                    <div className="form__group col-6">
+                                    <div className="form__group col-12 col-sm-6">
                                         <label htmlFor="tenPhim">Tên Phim</label>
                                         <input name="tenPhim" value={tableModal?.tenPhim} type="text" id="tenPhim" onChange={handleChange} />
                                     </div>
-                                    <div className="form__group col-6">
+                                    <div className="form__group col-12 col-sm-6">
                                         <label htmlFor="biDanh">Bí Danh</label>
                                         <input name="biDanh" value={tableModal?.biDanh} type="text" id="biDanh" onChange={handleChange} />
                                     </div>
-                                    <div className="form__group col-6">
+                                    <div className="form__group col-12 col-sm-6">
                                         <label htmlFor="trailer">Trailer</label>
                                         <input name="trailer" value={tableModal?.trailer} type="text" id="trailer" onChange={handleChange} />
                                     </div>
-                                    <div className="form__group col-6">
+                                    <div className="form__group col-12 col-sm-6">
                                         <label htmlFor="moTa">Mô Tả</label>
                                         <textarea name="moTa" value={tableModal?.moTa} name="moTa" id="moTa" cols="68" rows="10" onChange={handleChange}></textarea>
                                     </div>
-                                    <div className="form__group col-6">
+                                    <div className="form__group col-12 col-sm-6">
                                         <label htmlFor="ngayKhoiChieu">Ngày Khởi Chiếu
                                             <p>(yyyy/mm/ddThh:mm:ss)</p></label>
                                         <input name="ngayKhoiChieu" value={tableModal?.ngayKhoiChieu} type="text" id="ngayKhoiChieu" onChange={handleChange} />
                                     </div>
 
-                                    <div className="form__group col-6">
+                                    <div className="form__group col-12 col-sm-6">
                                         <label htmlFor="danhGia">Đánh Giá
                                             <p>(từ 1 đến 10)</p></label>
                                         <input name="danhGia" value={tableModal?.danhGia} type="number" min="1" max="10" id="danhGia" onChange={handleChange} />

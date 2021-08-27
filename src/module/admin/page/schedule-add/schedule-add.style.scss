@@ -39,3 +39,22 @@
     }
   }
 }
+
+@media only screen and(max-width:1024px) {
+  .schedule__add-content .schedule__add--form {
+    width: 60%;
+  }
+}
+@media only screen and(max-width:736px) {
+  .schedule__add {
+    top: 50%;
+  }
+  .schedule__add-content .schedule__add--form {
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 414px) {
+  .schedule__add-content .schedule__add--form .form__group .form__value {
+    width: 230px;
+  }
+}

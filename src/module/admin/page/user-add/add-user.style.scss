@@ -1,0 +1,62 @@
+.add__user {
+  position: absolute;
+  top: 10%;
+  left: 9%;
+  &--header {
+    color: #fb4226;
+    font-weight: 700;
+    h3 {
+      color: black;
+    }
+  }
+  .form__addUser {
+    margin: 50px 0;
+    width: 100%;
+    border: 1px solid black;
+    box-shadow: 0 0 10px black;
+    padding: 10px;
+    .form__group {
+      label {
+        width: 150px;
+      }
+      input,
+      select {
+        width: 60%;
+      }
+      p {
+        font-size: 14px;
+        color: red;
+        width: 100%;
+        margin-left: 150px;
+      }
+    }
+    .submit__form {
+      text-align: center;
+      margin: 20px 0;
+    }
+  }
+}
+
+@media only screen and(max-width:736px) {
+  .add__user {
+    top: 100%;
+    left: 15%;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .add__user {
+    left: 0;
+  }
+  .form__addUser {
+    .form__group {
+      input,
+      select {
+        width: 50%;
+      }
+      p {
+        width: 50% !important;
+      }
+    }
+  }
+}
