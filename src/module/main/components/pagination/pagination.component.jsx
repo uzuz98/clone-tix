@@ -19,7 +19,7 @@ export default function PaginationComponent(props) {
     }
     //function to render the button to chagne page
     const renderBtnChangePage = () => pageNumber?.map((number, index) => (
-        <button className="btn btn-info" key={index} onClick={() => setPageToView(number)}>{number}</button>
+        <button className={`btn ${pageToView === number ? `btn-danger` : `btn-info`}`} key={index} onClick={() => setPageToView(number)}>{number}</button>
     ))
     //take the item per page to view
     const currentPageToView = listItem?.slice(indexOfFirstTicket, indexOfLastTicket)
@@ -27,7 +27,6 @@ export default function PaginationComponent(props) {
     const renderMovieListPerPage = () => currentPageToView?.map((movie, index) => (
         tBody(movie, index)
     ))
-
     return (
         <>
             <div className="btn__change">

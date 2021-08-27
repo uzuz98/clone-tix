@@ -1,6 +1,8 @@
 import HomeAdmin from "../module/admin/page/home/home-admin.page";
 import AddMovie from "../module/admin/page/movie-add/add-movie.component";
 import EditMovie from "../module/admin/page/movie-edit/edit-movie.component";
+import ScheduleAdd from "../module/admin/page/schedule-add/schedule-add.page";
+import ScheduleDelete from "../module/admin/page/schedule-delete/schedule-delete.page";
 import UserAdd from "../module/admin/page/user-add/add-user.component";
 import UserEdit from "../module/admin/page/user-edit/edit-user.component";
 import Home from "../module/main/pages/homes/home.page";
@@ -68,5 +70,15 @@ export const adminRoutes = [
     path: "/admin/user-management/edit",
     exact: "true",
     Component: UserEdit,
+  },
+  {
+    path: "/admin/schedule/delete/:id/:tenPhim",
+    exact: "true",
+    Component: ScheduleDelete,
+  },
+  {
+    path: "/admin/schedule/add/:id/:tenPhim",
+    exact: "true",
+    Component: ScheduleAdd,
   },
 ];

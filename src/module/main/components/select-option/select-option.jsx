@@ -15,9 +15,9 @@ export default function SelectOption(props) {
     const handleChoiceMovie = (name) => {
         const select = document.getElementById(name).value
         dispatch(getSearchMovieAction(select))
-        console.log(heThongRapChieu);
+        document.getElementById("theater").value = ""
+        document.getElementById("date").value = ""
     }
-
     //function render list movie name
     const renderOptionMovie = () => movieList.map((movie, index) => {
         return (
@@ -93,7 +93,7 @@ export default function SelectOption(props) {
                     id="theater"
                     onChange={() => setCumRapChieu(document.getElementById("theater").value)}
                 >
-                    <option selected disabled hidden>Vui lòng chọn Rạp...</option>
+                    <option selected disabled hidden value="">Vui lòng chọn Rạp...</option>
                     {renderOptionCinema()}
                 </select>
             </div>

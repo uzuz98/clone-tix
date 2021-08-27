@@ -1,0 +1,57 @@
+.add__movie {
+  position: absolute;
+  top: 10%;
+  left: 9%;
+  h1 {
+    color: #fb4226;
+    font-weight: 700;
+    margin: 50px 0;
+  }
+  .form__group {
+    .description {
+      vertical-align: top;
+    }
+    margin-bottom: 10px;
+    label {
+      font-weight: 800;
+      width: 150px;
+    }
+    input {
+      width: 50%;
+      height: 30px;
+    }
+  }
+  .submit__form {
+    margin-left: 20%;
+    button {
+      margin-right: 10px;
+    }
+  }
+}
+
+@media only screen and (max-width: 736px) {
+  .admin__main {
+    .add__movie {
+      top: 50%;
+      left: 1%;
+      h1 {
+        font-size: 18px;
+        text-align: center;
+      }
+      .form__group {
+        label {
+          width: 150px;
+        }
+        input {
+          width: 55%;
+        }
+        textarea {
+          width: 55%;
+        }
+      }
+    }
+    .submit__form {
+      margin-bottom: 50px;
+    }
+  }
+}

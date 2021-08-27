@@ -1,0 +1,60 @@
+.schedule__add {
+  position: absolute;
+  top: 10%;
+  left: 0%;
+  width: 100%;
+  &--header {
+    color: #fb4226;
+    font-weight: 700;
+    margin: 50px 0;
+  }
+  &-content {
+    margin-left: 20%;
+    p {
+      font-weight: 700;
+      span {
+        color: #fb4226;
+      }
+    }
+    .schedule__add--form {
+      width: 50%;
+      border: 1px solid black;
+      padding: 20px;
+      box-shadow: 0 0 5px black;
+      .form__group {
+        margin-bottom: 20px;
+        label {
+          width: 200px;
+        }
+        .form__value {
+          width: 400px;
+        }
+      }
+      .submit {
+        text-align: center;
+        button {
+          margin: 0 10px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and(max-width:1024px) {
+  .schedule__add-content .schedule__add--form {
+    width: 60%;
+  }
+}
+@media only screen and(max-width:736px) {
+  .schedule__add {
+    top: 50%;
+  }
+  .schedule__add-content .schedule__add--form {
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 414px) {
+  .schedule__add-content .schedule__add--form .form__group .form__value {
+    width: 230px;
+  }
+}
