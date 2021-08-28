@@ -2,4 +2,38 @@
   position: absolute;
   top: 10%;
   left: 9%;
+  table {
+    margin: 0 auto;
+    box-shadow: 0 0 10px black;
+    thead {
+      tr {
+        th {
+          padding-left: 10px;
+          border: 1px solid black;
+          width: 200px;
+          &:last-child {
+            text-align: center;
+          }
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          vertical-align: top;
+          padding-left: 10px;
+          border: 1px solid black;
+          &:last-child {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+  .btn__change {
+    margin: 10px 0;
+  }
+  .btn__change:nth-of-type(2) {
+    display: none;
+  }
 }

@@ -16,13 +16,14 @@ export const getMovieListAction = () => {
   };
 };
 
-export const getMovieDetailAction = (id) => (dispatch) => {
+export const getMovieDetailAction = (id, loading, setLoading) => (dispatch) => {
   getMovieDetailApi(id)
     .then((res) => {
       dispatch({
         type: GET_MOVIE_DETAIL,
         payload: res.data,
       });
+      setLoading(!loading);
     })
     .catch((err) => {
       console.log(err);

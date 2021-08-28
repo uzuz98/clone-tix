@@ -44,26 +44,10 @@
             width: 130px;
           }
         }
-        .list__description {
-          width: 400px;
-        }
       }
     }
     tbody {
       tr {
-        .description {
-          font-size: 14px;
-          font-size: 14px;
-          display: -webkit-box;
-          -webkit-line-clamp: 6;
-          -webkit-box-orient: vertical;
-          text-overflow: ellipsis;
-          overflow: hidden;
-          height: 127px;
-          border: none;
-          border-top: 1px solid black;
-          word-break: break-all;
-        }
         td {
           vertical-align: top;
           padding-left: 10px;

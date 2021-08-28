@@ -123,7 +123,6 @@ export default function EditUserModalComponent(props) {
         window.confirm(`Vui lòng kiểm tra lại thông tin trước khi chỉnh sửa!!!`) && dispatch(getEditUserAction(userB, history))
 
     }
-    console.log(userEdit?.isValid);
     return (
         <form className="form__editUser" onSubmit={handleSubmit}>
             <div className="form__group">

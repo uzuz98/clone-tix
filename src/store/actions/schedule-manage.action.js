@@ -11,7 +11,6 @@ import {
 export const getScheduleTheaterAction = () => async (dispatch) => {
   try {
     const res = await getScheduleTheaterApi();
-    console.log(res);
     dispatch({
       payload: res.data,
       type: GET_SCHEDULE_OPTION,
