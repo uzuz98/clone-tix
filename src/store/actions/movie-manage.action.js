@@ -16,7 +16,7 @@ export const getMovieManageAction = (form__data, history) => async () => {
 
 export const getMovieDeleteAction = (id, history) => async () => {
   try {
-    const res = await getMovieDeleteApi(id);
+    await getMovieDeleteApi(id);
     alert("Xóa thành công");
     history.go();
   } catch (error) {

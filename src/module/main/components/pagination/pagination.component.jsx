@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 export default function PaginationComponent(props) {
-    const { listItem, tHead, tBody, tableName, headName, bodyName, action } = props
+    const { listItem, tHead, tBody, tableName, headName, bodyName } = props
     //set current page
     const [pageToView, setPageToView] = useState(1)
     //set amount of post per page
