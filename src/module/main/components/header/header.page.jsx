@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 import "./header.style.scss"
 import avatar from '../../../../img/avatar.png'
 import logo from '../../../../img/logo.png'
@@ -48,17 +48,17 @@ export default function Header() {
 
     }
     window.addEventListener("scroll", scrollSticky)
-
+    //function to check the user login or not yet
+    const history = useHistory()
     const renderLogin = () => {
         const token = localStorage.getItem("token")
         const hoTen = localStorage.getItem("hoTen")
         const handleLogOut = () => {
             alert("Đăng xuất thành công")
             localStorage.clear()
-            window.location.reload();
+            history.go()
         }
         if (token) {
-            console.log(hoTen);
             return (
                 <>
                     <li className="nav-item">
@@ -120,7 +120,6 @@ export default function Header() {
                                 nav-link" onClick={() => toggleClose()} to="/#ads" smooth>Ứng dụng</NavHashLink>
                         </li>
                     </ul>
-
                 </div>
             </nav>
         </>

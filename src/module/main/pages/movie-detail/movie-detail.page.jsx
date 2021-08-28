@@ -6,8 +6,8 @@ import { getMovieDetailAction } from '../../../../store/actions/movie.action';
 export default function MovieDetail() {
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(getMovieDetailAction(id), [])
-    })
+        dispatch(getMovieDetailAction(id))
+    }, [])
 
     const { id } = useParams();
     const movieDetail = useSelector((state) => state.movie.movieDetail)

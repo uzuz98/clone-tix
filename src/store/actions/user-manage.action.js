@@ -41,7 +41,6 @@ export const getDeleteUserAction = (taiKhoan, history) => async () => {
 export const getEditUserAction = (userInfo, history) => async () => {
   try {
     const res = await getEditUserApi(userInfo);
-    console.log(res);
     alert("Chỉnh sửa thành công");
     history.go();
   } catch (error) {
