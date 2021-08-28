@@ -62,48 +62,145 @@
           height: 127px;
           border: none;
           border-top: 1px solid black;
+          word-break: break-all;
         }
         td {
           vertical-align: top;
           padding-left: 10px;
           border: 1px solid black;
         }
-        .modal__delete {
-          position: absolute;
-          top: 0%;
-          left: -9%;
-          height: 50%;
-          z-index: 9999999999999;
-          .delete__overlay {
-            overflow: hidden;
-            width: 102vw;
-            height: 102vh;
-            background-color: rgba($color: black, $alpha: 0.7);
+      }
+    }
+  }
+}
+.modal__useredit {
+  position: absolute;
+  top: 0;
+  left: -9%;
+  z-index: 999999;
+  .overlay {
+    width: 102vw;
+    height: 100vh;
+    background-color: rgba($color: black, $alpha: 0.7);
+  }
+  &--content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999999999999;
+    background-color: white;
+    padding: 50px;
+  }
+  table {
+    margin: 0 auto;
+    box-shadow: 0 0 10px black;
+    thead {
+      tr {
+        th {
+          padding-left: 10px;
+          border: 1px solid black;
+          width: 160px;
+          &:nth-child(2),
+          &:nth-child(3),
+          &:nth-child(1) {
+            width: 240px;
           }
-          .delete__content {
-            left: 50%;
-            transform: translate(-50%, -50%);
-            position: absolute;
-            top: 50%;
-            background: white;
-            height: 400px;
-            padding: 40px;
-            border-radius: 20px;
-            .delete__header {
-              h3 {
-                color: red;
-                margin-bottom: 50px;
-              }
-              p {
-                font-weight: 700;
-                span {
-                  color: #fb4226;
-                }
-              }
-            }
+          &:last-child {
+            width: 130px;
           }
+        }
+        .list__description {
+          width: 400px;
         }
       }
     }
+    tbody {
+      tr {
+        td {
+          vertical-align: top;
+          padding-left: 10px;
+          border: 1px solid black;
+          word-break: break-all;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .modal__useredit {
+    &--content {
+      width: 80%;
+    }
+    .form__editUser .form__group input,
+    .form__editUser .form__group select {
+      margin: 7px 3px;
+    }
+  }
+}
+
+@media only screen and (max-width: 736px) {
+  .user__edit {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+  }
+  .user__edit table thead tr th:nth-child(2),
+  .user__edit table thead tr th:nth-child(3),
+  .user__edit table thead tr th:nth-child(1) {
+    width: 100px;
+  }
+  .user__edit table thead tr th {
+    width: 100px;
+  }
+  .user__edit table thead tr th:last-child {
+    width: 100px;
+  }
+  .user__edit table tbody tr td {
+    font-size: 14px;
+    word-break: break-all;
+  }
+  .modal__useredit {
+    left: 0;
+
+    &--content {
+      width: 80%;
+      position: absolute;
+      z-index: 9999999999999;
+      background-color: white;
+      padding: 0;
+      table {
+        display: none;
+      }
+    }
+    .form__editUser {
+      margin: 0;
+      width: 100%;
+      border: 1px solid black;
+      box-shadow: 0 0 10px black;
+      padding: 0;
+    }
+    .form__editUser .form__group input,
+    .form__editUser .form__group select {
+      margin: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .user__edit table tbody tr td {
+    font-size: 12px;
+    word-break: break-all;
+  }
+  .user__edit table thead tr th,
+  .user__edit table thead tr th:last-child,
+  .user__edit table thead tr th:nth-child(2),
+  .user__edit table thead tr th:nth-child(3),
+  .user__edit table thead tr th:nth-child(1) {
+    width: 50px;
+  }
+  .form__editUser .form__group label {
+    width: 100px;
   }
 }

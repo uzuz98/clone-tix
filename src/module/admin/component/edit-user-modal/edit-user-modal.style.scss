@@ -1,0 +1,29 @@
+.form__editUser {
+  margin: 50px auto;
+  width: 70%;
+  border: 1px solid black;
+  box-shadow: 0 0 10px black;
+  padding: 10px;
+  .form__group {
+    label {
+      width: 150px;
+    }
+    input,
+    select {
+      width: 60%;
+      margin: 8px 0;
+    }
+    p {
+      font-size: 14px;
+      color: red;
+      width: 100%;
+      margin-left: 150px;
+      text-align: left;
+      margin-bottom: 0;
+    }
+  }
+  .submit__form {
+    text-align: center;
+    margin: 20px 0;
+  }
+}
