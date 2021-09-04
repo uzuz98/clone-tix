@@ -8,7 +8,9 @@ import "./schedule-add.style.scss"
 
 export default function ScheduleAdd() {
     const dispatch = useDispatch()
+    //take the tenPhim and maPhim from url
     const { id, tenPhim } = useParams()
+    //declare ticketDetail
     const [ticketDetail, setTicketDetail] = useState({
         maPhim: id,
         ngayChieuGioChieu: {},
@@ -16,27 +18,34 @@ export default function ScheduleAdd() {
         giaVe: "",
     })
     const [cinemaTheater, setCinemaTheater] = useState()
+    //call api to get the list theater schedule
     useEffect(() => {
         dispatch(getScheduleTheaterAction())
     }, [])
+    //take the list theater, cinema from redux store
     const { listTheater } = useSelector(state => state.schedule)
     const { listCinema } = useSelector(state => state.schedule)
+    //get the array of list CumRap from list cinema
     const listNumberCinema = listCinema?.filter(cine => cine.maCumRap === cinemaTheater)
+    //render list theater for choose
     const renderListTheater = () => listTheater?.map((theater, index) => (
         <option key={index} value={theater.maHeThongRap}>{theater.maHeThongRap}</option>
     ))
+    //take the theaterCinema then call api to get the list schedule by cinema
     const getTheaterCinema = (event) => {
         dispatch(getScheduleCinemAction(event.target?.value))
         document.getElementById("maCumRap").value = ""
         document.getElementById("maRap").value = ""
     }
+    //take the list cinema for choose
     const renderListCinema = () => listCinema?.map((cinema, index) => (
         <option value={cinema.maCumRap} key={index}>{cinema.tenCumRap}</option>
     ))
-
+    //render the list number of Cinema
     const renderListNumberCinema = listNumberCinema[0]?.danhSachRap.map((cine, index) => (
         <option value={cine.maRap} key={index}>{cine.maRap} - {cine.tenRap}</option>
     ))
+    //get the value on the option select
     const handleChange = (event) => {
         const { value, name } = event.target
         if (name === "ngayChieuGioChieu") {
@@ -52,6 +61,7 @@ export default function ScheduleAdd() {
         }
     }
     const history = useHistory()
+    //submit form then call api to add schedule
     const handleSubmitForm = (event) => {
         event.preventDefault()
         dispatch(getScheduleCreateAction(ticketDetail, history, id, tenPhim))

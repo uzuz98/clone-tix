@@ -46,7 +46,6 @@ export default function Home() {
         })
     }
     return (
-
         <div>
             {
                 !isLoading ? <LoadingScreen /> :
@@ -76,10 +75,8 @@ export default function Home() {
                         <section className="ads" id="ads">
                             <Ads></Ads>
                         </section>
-                        {console.clear()}
                     </>
             }
-
         </div>
     )
 

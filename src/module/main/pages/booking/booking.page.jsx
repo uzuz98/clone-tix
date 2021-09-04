@@ -19,19 +19,13 @@ export default function Booking() {
         setModal(!modal)
     }
     //check the obj modal if true set the overlay hidden for body
-    if (modal) {
-        document.body.classList.add("active__modal")
-    } else {
-        document.body.classList.remove("active__modal")
-    }
+    modal ? document.body.classList.add("active__modal") : document.body.classList.remove("active__modal")
 
     const { id } = useParams()
     //call api to get the movie detail and list chair
     useEffect(() => {
-        dispatch(getListChairAction(id))
-        setTimeout(() => {
-            setIsLoading(true)
-        }, 3000)
+        dispatch(getListChairAction(id, setIsLoading))
+        window.scrollTo(0, 0)
     }, []);
     //get the danhSachGhe,thongTinPhim from store redux
     const { danhSachGhe } = useSelector((state) => state.booking.listChair)
@@ -51,9 +45,6 @@ export default function Booking() {
             <p className="col-6" key={index}>Ghế {seat}</p>
         )
     })
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
     const handleBooked = () => {
         setModal(!modal)
         const listChoice = danhSachGhe.filter(chair => chair.dangChon)

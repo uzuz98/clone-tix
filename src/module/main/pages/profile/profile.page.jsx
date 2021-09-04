@@ -12,11 +12,8 @@ export default function Profile() {
     const { profileInfo } = useSelector(state => state.profile)
     const [isLoading, setIsLoading] = useState(false)
     useEffect(() => {
-        dispatch(getProfileAction())
+        dispatch(getProfileAction(setIsLoading))
         window.scrollTo(0, 0)
-        setTimeout(() => {
-            setIsLoading(true)
-        }, 4000);
     }, [])
     //take the last booking to the top
     const profileInfoSorted = profileInfo?.thongTinDatVe?.sort((a, b) => {

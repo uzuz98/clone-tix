@@ -34,8 +34,6 @@ export default function MovieList(props) {
     const settings = {
         infinite: false,
         dots: false,
-        autoplay: true,
-        autoplaySpeed: 4000,
         arrows: true,
         speed: 500,
         slidesToShow: 4,
@@ -48,8 +46,6 @@ export default function MovieList(props) {
                 settings: {
                     infinite: false,
                     slidesToShow: 4,
-                    autoplay: true,
-                    autoplaySpeed: 5000,
                     rows: 2,
                     arrows: false,
                     dots: true,
@@ -62,7 +58,6 @@ export default function MovieList(props) {
                 settings: {
                     infinite: false,
                     slidesToShow: 3,
-                    autoplay: false,
                     rows: 2,
                     slidesPerRow: 1,
                     slidesToScroll: 3,

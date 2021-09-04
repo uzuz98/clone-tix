@@ -4,13 +4,14 @@ import { bannerMovie } from '../../../../config/banner.config'
 import "./modal.style.scss"
 import Slider from 'react-slick'
 import ModalCard from './modal.component'
+import { NavLink } from 'react-router-dom'
 
 export default class Banner extends Component {
     renderImg = bannerMovie.map((banner, index) => (
-        <div className="banner__item" key={index}>
+        <NavLink to={`movie-detail/${banner.id}`} className="banner__item" key={index}>
             <img src={banner.img} alt="banner movie" className="modalMovie__img" />
             <ModalCard src={banner.src} />
-        </div >
+        </NavLink >
     ))
     settings = {
         infinite: true,
