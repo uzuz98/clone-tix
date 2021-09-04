@@ -21,9 +21,7 @@ export default function TheaterList() {
     //get the object list cinema system
     const lstCumRap = listTheater[0]?.lstCumRap
     useEffect(() => {
-        if (lstCumRap) {
-            setPhimTheoCumRap(lstCumRap[0]?.maCumRap)
-        }
+        lstCumRap && setPhimTheoCumRap(lstCumRap[0]?.maCumRap)
     }, [heThongRap])
     //function to render the Logo' Cinema
     const renderLogo = () => theaterShowTime.map((cine, index) => {
@@ -55,8 +53,6 @@ export default function TheaterList() {
             </div>
         )
     })
-
-
     //take the exact theater by the cinema system
     const listRap = lstCumRap?.filter((cine) => cine.maCumRap === phimTheoCumRap)
     //function render time by the theater
@@ -119,7 +115,6 @@ export default function TheaterList() {
             )
         })
     }
-    // data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"
     //function to render time of movie in mobile
     const renderListTheaterInMobile = () => lstCumRap?.map((cine, index) => {
         return (
@@ -178,7 +173,6 @@ export default function TheaterList() {
                         }
                     </div>
                 </div>
-
             </>
         )
     })

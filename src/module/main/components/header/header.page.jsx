@@ -19,11 +19,7 @@ export default function Header() {
     //press the menu to open overlay
     const toggleOverlay = () => {
         overlayToggle = !overlayToggle
-        if (overlayToggle) {
-            document.querySelector(".navbar__overlay").style.display = "block"
-        } else {
-            document.querySelector(".navbar__overlay").style.display = "none"
-        }
+        overlayToggle ? document.querySelector(".navbar__overlay").style.display = "block" : document.querySelector(".navbar__overlay").style.display = "none"
     }
     //press the logo to scroll to top
     const scrollToTop = () => {
@@ -64,7 +60,7 @@ export default function Header() {
                     <li className="nav-item">
                         <NavLink to="/profile"
                             className="nav-link sign__item" onClick={() => toggleClose()} >
-                            <img src={avatar} alt="" />Xin chào, {hoTen}</NavLink>
+                            <img src={avatar} alt="" />Xin chào, <span className="header__fullname">{hoTen}</span></NavLink>
                     </li>
                     <li className="nav-item" onClick={() => handleLogOut()}>
                         <span className="nav-link sign__item sign__up">Đăng Xuất</span>
