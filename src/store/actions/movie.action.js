@@ -23,6 +23,8 @@ export const getMovieDetailAction = (id, loading, setLoading) => (dispatch) => {
         type: GET_MOVIE_DETAIL,
         payload: res.data,
       });
+    })
+    .then(() => {
       setLoading(!loading);
     })
     .catch((err) => {

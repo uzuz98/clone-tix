@@ -54,7 +54,7 @@ export default function ModalCard(props) {
             >
                 <Fade in={open}>
                     <div className={classes.paper}>
-                        <iframe className="trailer__item" id="modal__iframe" src={src} title="YouTube video player" frameborder="0" allow=" accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe className="trailer__item" id="modal__iframe" src={src} title="YouTube video player" frameBorder="0" allow=" accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                     </div>
                 </Fade>
             </Modal>

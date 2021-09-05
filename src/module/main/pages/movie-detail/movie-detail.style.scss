@@ -1,0 +1,28 @@
+.movie__detail {
+  #movie__detailTab {
+    width: 100%;
+    justify-content: center;
+  }
+  .movie__showtime {
+    padding-top: 60px;
+    background-color: #0a2029;
+    .nav-link {
+      border: none;
+      background-color: transparent !important;
+      color: white;
+      font-size: 20px;
+      transform: scale(0.9);
+      &:hover {
+        color: #fa5238;
+        transform: scale(1);
+      }
+    }
+    .nav-tabs {
+      border-bottom: none;
+    }
+    .nav-tabs .nav-link.active {
+      color: #fa5238 !important;
+      transform: scale(1);
+    }
+  }
+}

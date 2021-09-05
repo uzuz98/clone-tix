@@ -26,15 +26,22 @@ export const bookingReducer = (state = initialState, action) => {
         state.listChair.danhSachGhe = danhSachGhe;
         if (danhSachGhe[index].dangChon === true) {
           state.totalMoney = state.totalMoney + danhSachGhe[index].giaVe;
-          state.listSeat.push(danhSachGhe[index].stt);
+          state?.listSeat?.push(danhSachGhe[index].stt);
         } else {
-          state.totalMoney = state.totalMoney - danhSachGhe[index].giaVe;
-          const listSeatFilter = state.listSeat.filter(
+          state.totalMoney = state?.totalMoney - danhSachGhe[index].giaVe;
+          const listSeatFilter = state?.listSeat?.filter(
             (seat) => danhSachGhe[index].stt !== seat
           );
-          state.listSeat = [...listSeatFilter];
+          if (listSeatFilter) {
+            state.listSeat = [...listSeatFilter];
+          }
         }
       }
+      return { ...state };
+    }
+    case "CLEAR_STORE": {
+      state.listSeat = [];
+      state.totalMoney = 0;
       return { ...state };
     }
     default: {

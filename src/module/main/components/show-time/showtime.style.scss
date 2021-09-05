@@ -1,0 +1,203 @@
+#movie__detail--showtime {
+  padding: 30px 0;
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: hsl(0deg, 0%, 53%);
+    border-radius: 10px;
+  }
+  .show-time {
+    background-color: white;
+    display: flex;
+    width: 50%;
+    margin: 0 auto;
+    .showtime__theater {
+      width: 30%;
+      border: 1px solid #ebebec;
+      padding: 0 20px;
+      &--item {
+        margin: 10px 0;
+        position: relative;
+        opacity: 0.6;
+        cursor: pointer;
+        transition: all 0.5s;
+        &:after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          bottom: 2px;
+          transform: translateX(-50%);
+          background-color: #ebebec;
+          height: 2px;
+          width: calc(100% - 10px);
+          transition: all 0.5s;
+        }
+      }
+      .active {
+        opacity: 1;
+        &:after {
+          background-color: #fb4226;
+          box-shadow: 0 -3px 10px 0 #fb4226;
+        }
+      }
+    }
+    .showtime__date {
+      width: 70%;
+      &--day {
+        display: flex;
+        width: 100%;
+        text-align: center;
+        border-bottom: 2px solid #ebebec;
+        overflow-x: auto;
+        .date__item {
+          margin: 10px 40px;
+          cursor: pointer;
+          color: black;
+          opacity: 0.5;
+
+          p:first-child {
+            font-weight: 500;
+          }
+          p:last-child {
+            font-weight: 500;
+          }
+        }
+        .active {
+          opacity: 1;
+          p:first-child {
+            color: #fb4226;
+          }
+        }
+      }
+      &--time {
+        height: 387px;
+        overflow-y: scroll;
+        .time__content {
+          margin: 20px;
+          margin-right: 20px;
+          position: relative;
+          &:after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -8px;
+            transform: translateX(-50%);
+            background-color: #ebebec;
+            height: 2px;
+            width: 100%;
+            transition: all 0.5s;
+          }
+          .time__header {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+            .time__name {
+              p {
+                color: #fb4226;
+                font-weight: 600;
+              }
+            }
+            &:after {
+              content: "+";
+              font-weight: 900;
+              position: absolute;
+              top: 35%;
+              right: 0;
+              transform: translateY(-50%);
+              width: 20px;
+              height: 20px;
+            }
+            &:not(.collapsed):after {
+              content: "-";
+            }
+          }
+        }
+        .time__item {
+          margin: 0;
+          a.col-4 {
+            &:hover {
+              color: unset;
+              text-decoration: none;
+            }
+          }
+          .col-4 {
+            text-align: left;
+            height: 45px;
+            .time__showtime {
+              text-align: center;
+              border: 1px solid black;
+              border-radius: 4px;
+              padding: 5px 35px;
+              background: hsla(0, 0%, 96.5%, 0.6);
+              color: #108f3e;
+              font-size: 18px;
+              font-weight: 600;
+              cursor: pointer;
+              width: 80%;
+              transition: all 0.5s;
+              span {
+                transition: none;
+              }
+              &:hover {
+                color: #fb4226;
+                background-color: white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1366px) {
+  #movie__detail--showtime .show-time {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 1366px) {
+  #movie__detail--showtime .show-time {
+    width: 80%;
+  }
+  #movie__detail--showtime .show-time .showtime__theater--item span {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 736px) {
+  #movie__detail--showtime .show-time {
+    flex-direction: column;
+    width: 100%;
+  }
+  #movie__detail--showtime .show-time .showtime__theater {
+    width: 100%;
+    display: flex;
+    border-bottom: 4px solid #ebebec;
+  }
+  #movie__detail--showtime .show-time .showtime__theater--item {
+    margin: 10px 33px;
+    span {
+      display: none;
+    }
+  }
+  #movie__detail--showtime .show-time .showtime__date--day {
+    border-bottom: 4px solid #ebebec;
+  }
+  #movie__detail--showtime .show-time .showtime__date {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  #movie__detail--showtime .show-time .showtime__theater--item {
+    margin: 10px 7px;
+  }
+}

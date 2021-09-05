@@ -8,16 +8,14 @@ import Slider from 'react-slick'
 export default function Ads() {
     const renderImg = () => adsImg.map((src, index) => {
         return (
-            <>
-                <img src={src.src} alt="" key={index} />
-            </>
+            <img src={src.src} key={Math.random()} alt="" />
         )
     })
     const settings = {
         dots: false,
         infinite: true,
-        // autoplay: true,
-        // autoplaySpeed: 5000,s
+        autoplay: true,
+        autoplaySpeed: 3000,
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: false,

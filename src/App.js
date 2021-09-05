@@ -80,7 +80,7 @@ function App() {
         {renderMainRoute()}
         {renderProfileRoute()}
         {renderAdminRoute()}
-        <Route path="/booking/:id" exact="true">
+        <Route path="/booking/:id" exact={true}>
           <GuardBooking>
             <Booking />
           </GuardBooking>
@@ -90,7 +90,6 @@ function App() {
           <Redirect to="/"></Redirect>
         </Route>
       </Switch>
-      {console.clear()}
     </BrowserRouter>
   );
 }

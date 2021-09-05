@@ -48,37 +48,37 @@ export const profileRoutes = [
 export const adminRoutes = [
   {
     path: "/admin",
-    exact: "true",
+    exact: true,
     Component: HomeAdmin,
   },
   {
     path: "/admin/movie-management/add",
-    exact: "true",
+    exact: true,
     Component: AddMovie,
   },
   {
     path: "/admin/movie-management/edit",
-    exact: "true",
+    exact: true,
     Component: EditMovie,
   },
   {
     path: "/admin/user-management/add",
-    exact: "true",
+    exact: true,
     Component: UserAdd,
   },
   {
     path: "/admin/user-management/edit",
-    exact: "true",
+    exact: true,
     Component: UserEdit,
   },
   {
     path: "/admin/schedule/delete/:id/:tenPhim",
-    exact: "true",
+    exact: true,
     Component: ScheduleDelete,
   },
   {
     path: "/admin/schedule/add/:id/:tenPhim",
-    exact: "true",
+    exact: true,
     Component: ScheduleAdd,
   },
 ];

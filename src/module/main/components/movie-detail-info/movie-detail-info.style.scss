@@ -1,0 +1,30 @@
+#movie__detail--info {
+  .movie__detail--info-content {
+    margin-top: 10px;
+    width: 50%;
+    margin: 0 auto;
+    padding: 30px 0;
+
+    .info__left {
+      border-right: 3px solid white;
+    }
+    p {
+      color: white;
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+}
+
+@media only screen and (max-width: 736px) {
+  #movie__detail--info .movie__detail--info-content .info__left {
+    border-bottom: 3px solid white;
+    border-right: none;
+  }
+
+  #movie__detail--info {
+    .movie__detail--info-content {
+      width: 70%;
+    }
+  }
+}

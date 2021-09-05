@@ -8,6 +8,7 @@ import "./select-option.style.scss"
 export default function SelectOption(props) {
     const { movieList } = props
     const dispatch = useDispatch()
+    const [movie, setMovie] = useState("")
     const [cumRap, setCumRapChieu] = useState("")
     const [maLichChieu, setMaLichChieu] = useState("")
     const { heThongRapChieu } = useSelector(state => state.search.searchingMovie)
@@ -15,35 +16,32 @@ export default function SelectOption(props) {
     const handleChoiceMovie = (name) => {
         const select = document.getElementById(name).value
         dispatch(getSearchMovieAction(select))
-        document.getElementById("theater").value = ""
-        document.getElementById("date").value = ""
+        setCumRapChieu("")
+        setMaLichChieu("")
+        setMovie(select)
     }
     //function render list movie name
-    const renderOptionMovie = () => movieList.map((movie, index) => {
+    const renderOptionMovie = () => movieList.map((movie) => {
         return (
-            <>
-                <option
-                    value={movie.maPhim}
-                    key={index}
+            <option
+                value={movie.maPhim}
+                key={Math.random()}
 
-                >
-                    {movie.tenPhim}
-                </option>
-            </>
+            >
+                {movie.tenPhim}
+            </option>
         )
     })
     //function render list cinema to choice
     const renderOptionCinema = () => heThongRapChieu?.map((theater) => {
-        return theater?.cumRapChieu.map((cinema, index) => {
+        return theater?.cumRapChieu.map((cinema) => {
             return (
-                <>
-                    <option
-                        value={cinema.tenCumRap}
-                        key={index}
-                    >
-                        {cinema.tenCumRap}
-                    </option>
-                </>
+                <option
+                    value={cinema.tenCumRap}
+                    key={Math.random()}
+                >
+                    {cinema.tenCumRap}
+                </option>
             )
         })
     })
@@ -56,7 +54,7 @@ export default function SelectOption(props) {
         if (listTime.length > 0) {
             return listTime[0].lichChieuPhim.slice(0, 10).map((time, index) => {
                 return (
-                    <option value={time.maLichChieu} key={index}>
+                    <option value={time.maLichChieu} key={Math.random()}>
                         {dateFormat(new Date(time.ngayChieuGioChieu), "ddd dd/mm/yyyy HH:MM")}
                     </option>
                 )
@@ -79,9 +77,10 @@ export default function SelectOption(props) {
                     className="search__film"
                     name="search__film"
                     id="film"
+                    value={movie}
                     onChange={() => handleChoiceMovie("film")}
                 >
-                    <option selected disabled hidden>Vui lòng chọn Phim...</option>
+                    <option disabled hidden value="">Vui lòng chọn Phim...</option>
                     {renderOptionMovie()}
                 </select>
             </div>
@@ -91,9 +90,10 @@ export default function SelectOption(props) {
                     className="search__theater"
                     name="search__theater"
                     id="theater"
+                    value={cumRap}
                     onChange={() => setCumRapChieu(document.getElementById("theater").value)}
                 >
-                    <option selected disabled hidden value="">Vui lòng chọn Rạp...</option>
+                    <option disabled hidden value="">Vui lòng chọn Rạp...</option>
                     {renderOptionCinema()}
                 </select>
             </div>
@@ -104,9 +104,10 @@ export default function SelectOption(props) {
                     className="search__date"
                     name="search__date"
                     id="date"
+                    value={maLichChieu}
                     onChange={() => setMaLichChieu(document.getElementById("date").value)}
                 >
-                    <option selected disabled hidden value="">Ngày chiếu...</option>
+                    <option disabled hidden value="">Ngày chiếu...</option>
                     {renderdateMovie}
                 </select>
             </div>

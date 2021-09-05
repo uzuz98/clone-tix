@@ -14,6 +14,7 @@ export default function Booking() {
     const dispatch = useDispatch()
     const [modal, setModal] = useState()
     const [isLoadng, setIsLoading] = useState(false)
+    const [payment, setPayment] = useState("1")
     //open and close modal
     const toggleModal = () => {
         setModal(!modal)
@@ -26,6 +27,7 @@ export default function Booking() {
     useEffect(() => {
         dispatch(getListChairAction(id, setIsLoading))
         window.scrollTo(0, 0)
+
     }, []);
     //get the danhSachGhe,thongTinPhim from store redux
     const { danhSachGhe } = useSelector((state) => state.booking.listChair)
@@ -38,9 +40,9 @@ export default function Booking() {
     //get the list Seat have chosen
     const { listSeat } = useSelector(state => state.booking)
     //sort the list seat from low to high
-    const listSeatSort = listSeat.sort((a, b) => a - b)
+    const listSeatSort = listSeat?.sort((a, b) => a - b)
     //render to html the list seat had chosen
-    const renderListSeatBooking = () => listSeatSort.map((seat, index) => {
+    const renderListSeatBooking = () => listSeatSort?.map((seat, index) => {
         return (
             <p className="col-6" key={index}>Ghế {seat}</p>
         )
@@ -54,10 +56,11 @@ export default function Booking() {
     const handleStatusChair = (chair, index) => {
         if (chair.daDat) {
             return (
-                <button className="btn btn-danger chair__item" disabled key={index}></button>)
+                <button className="btn btn-danger chair__item" disabled key={Math.random()}></button>)
         } else {
             if (chair.dangChon) {
                 return (<button
+                    key={Math.random()}
                     className="btn btn-success chair__item"
                     onClick={() => handleChoiceChair(chair)}
                 >{chair.stt}</button>)
@@ -66,7 +69,7 @@ export default function Booking() {
                     return (
                         <button
                             className="btn chair__item"
-                            key={index}
+                            key={Math.random()}
                             onClick={() => handleChoiceChair(chair)}
 
                         >{chair.stt}</button>
@@ -75,7 +78,7 @@ export default function Booking() {
                 return (
                     <button
                         className="btn btn-info chair__item"
-                        key={index}
+                        key={Math.random() * index}
                         onClick={() => handleChoiceChair(chair)}
                     >{chair.stt}</button>
                 )
@@ -170,7 +173,7 @@ export default function Booking() {
                                         <p>Ghế đã chọn</p>
                                         <div className="booking__right--list-chair row">
                                             {
-                                                listSeat.length === 0 ?
+                                                listSeat?.length === 0 ?
                                                     <p className="col-12">Vui lòng chọn ghế</p>
                                                     :
                                                     renderListSeatBooking()
@@ -179,13 +182,13 @@ export default function Booking() {
                                     </div>
                                     <div className="booking__right--item-payment">
                                         <p>Vui lòng chọn phương thức thanh toán</p>
-                                        <input type="radio" className="payment__value" id="cash" name="payment" value="1" checked />
+                                        <input type="radio" className="payment__value" id="cash" name="payment" value={payment} onChange={() => setPayment("1")} checked />
                                         <label htmlFor="cash">Tiền mặt</label><br />
 
-                                        <input type="radio" className="payment__value" id="atm" name="payment" value="2" checked />
+                                        <input type="radio" className="payment__value" id="atm" name="payment" value={payment} onChange={() => setPayment("2")} checked />
                                         <label htmlFor="atm">Thẻ ATM nội địa</label><br />
 
-                                        <input type="radio" className="payment__value" id="visa" name="payment" value="3" checked />
+                                        <input type="radio" className="payment__value" id="visa" name="payment" value={payment} onChange={() => setPayment("3")} checked />
                                         <label htmlFor="visa">Visa, Master, JCB</label>                        </div>
                                     <div className="buy__ticket text-center">
                                         {
@@ -194,7 +197,13 @@ export default function Booking() {
                                                 <button className="btn btn-info btn__buy" disabled>Mua vé</button>
                                         }
 
-
+                                        <button onClick={() => {
+                                            dispatch({
+                                                type: "CLEAR_STORE",
+                                            })
+                                            history.goBack()
+                                        }
+                                        } className="btn btn-danger">Quay lại</button>
                                     </div>
                                 </div>
                             </div>

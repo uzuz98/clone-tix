@@ -186,7 +186,8 @@ export default function EditMovie() {
                             :
                             <p className="error__search"
                             >Không tìm thấy kết quả tương ứng.
-                                <p>Vui lòng nhập lại với tên phim khác</p></p>
+                                <br />
+                                <span>Vui lòng nhập lại với tên phim khác</span></p>
                     }
                     {/* setting the div modal to show */}
                     {

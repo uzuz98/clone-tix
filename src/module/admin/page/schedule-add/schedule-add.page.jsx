@@ -17,7 +17,7 @@ export default function ScheduleAdd() {
         maRap: "",
         giaVe: "",
     })
-    const [cinemaTheater, setCinemaTheater] = useState()
+    const [cinemaTheater, setCinemaTheater] = useState("")
     //call api to get the list theater schedule
     useEffect(() => {
         dispatch(getScheduleTheaterAction())

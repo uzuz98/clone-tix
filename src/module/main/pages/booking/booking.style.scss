@@ -153,8 +153,9 @@
     }
   }
   .buy__ticket {
-    .btn__buy {
-      margin-top: 20px;
+    .btn__buy,
+    .btn-danger {
+      margin: 20px 0;
     }
   }
   .overlay {
@@ -228,10 +229,6 @@
           font-size: 12px;
         }
       }
-      .booking__right {
-        &--content {
-        }
-      }
     }
   }
 }
@@ -293,12 +290,6 @@
 
 @media only screen and (max-width: 736px) {
   .booking {
-    &__header {
-      .booking__center {
-        h3 {
-        }
-      }
-    }
     &__content {
       .booking__left {
         &--screen {
@@ -353,7 +344,8 @@
             }
           }
           .buy__ticket {
-            .btn__buy {
+            .btn__buy,
+            .btn-danger {
               margin-top: 5px;
             }
           }

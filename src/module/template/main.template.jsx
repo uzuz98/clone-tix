@@ -10,6 +10,7 @@ export default function MainTemplates(props) {
             <header>
                 <Header />
             </header>
+            <div style={{ marginBottom: "80px" }}></div>
             <main>
                 {
                     children

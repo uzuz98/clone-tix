@@ -30,15 +30,13 @@ export default function Profile() {
         </>
     )
     const tBody = (movie, index) => (
-        <tr key={index}>
+        <tr key={Math.random()}>
             <td>{index + 1}</td>
             <td>{movie.tenPhim}</td>
             <td className="row">
                 {movie?.danhSachGhe?.map((chair, indexS) => {
                     return (
-                        <>
-                            <span key={indexS} className="col-6 col-sm-3">{chair.tenGhe} </span>
-                        </>
+                        <span key={indexS} className="col-6 col-sm-3">{chair.tenGhe} </span>
                     )
                 })}
             </td>

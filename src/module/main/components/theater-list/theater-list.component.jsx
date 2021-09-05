@@ -24,17 +24,15 @@ export default function TheaterList() {
         lstCumRap && setPhimTheoCumRap(lstCumRap[0]?.maCumRap)
     }, [heThongRap])
     //function to render the Logo' Cinema
-    const renderLogo = () => theaterShowTime.map((cine, index) => {
+    const renderLogo = () => theaterShowTime.map((cine) => {
         return (
-            <>
-                <div
-                    key={index}
-                    className={heThongRap === cine.maHeThongRap ? `logo__item active` : `logo__item`}
-                    onClick={() => (setHeThongRap(cine.maHeThongRap))}
-                >
-                    <img src={cine.logo} alt="" />
-                </div>
-            </>
+            <div
+                key={Math.random()}
+                className={heThongRap === cine.maHeThongRap ? `logo__item active` : `logo__item`}
+                onClick={() => (setHeThongRap(cine.maHeThongRap))}
+            >
+                <img src={cine.logo} alt="" />
+            </div>
         )
     })
     //theaterSrc to get the Image of the respective cinema
@@ -42,9 +40,9 @@ export default function TheaterList() {
     //listTheater to get the exact cinema system to render the list Cinema
 
     //function render the list cinema
-    const renderListTheater = () => lstCumRap?.map((cine, index) => {
+    const renderListTheater = () => lstCumRap?.map((cine) => {
         return (
-            <div className={phimTheoCumRap === cine.maCumRap ? `list__item active` : `list__item`} onClick={() => setPhimTheoCumRap(cine.maCumRap)} key={index}>
+            <div className={phimTheoCumRap === cine.maCumRap ? `list__item active` : `list__item`} onClick={() => setPhimTheoCumRap(cine.maCumRap)} key={Math.random()}>
                 <img src={theaterSrc[0]?.src} alt="" />
                 <div className="list__detail">
                     <span>{cine.tenCumRap}</span>
@@ -57,9 +55,9 @@ export default function TheaterList() {
     const listRap = lstCumRap?.filter((cine) => cine.maCumRap === phimTheoCumRap)
     //function render time by the theater
     const renderShowTime = () => listRap?.map(cine => {
-        return cine.danhSachPhim.slice(0, 4).map((rap, index) => {
+        return cine.danhSachPhim.slice(0, 4).map((rap) => {
             return (
-                <div className="time__content" key={index} >
+                <div className="time__content" key={Math.random()} >
                     <div
                         className="time__header collapsed"
                         data-toggle="collapse"
@@ -96,7 +94,7 @@ export default function TheaterList() {
             const timeMovie = dateFormat(new Date(time.ngayChieuGioChieu), "HH:MM")
             if (timeMovie <= now) {
                 return (
-                    <div className="col-4" key={index}>
+                    <div className="col-4" key={Math.random() * index}>
                         <div className="time__showtime disabled">
                             <span>
                                 {timeMovie}
@@ -105,7 +103,7 @@ export default function TheaterList() {
                     </div>
                 )
             } else return (
-                <NavLink key={index} className="col-4" to={`/booking/${time.maLichChieu}`}>
+                <NavLink key={Math.random()} className="col-4" to={`/booking/${time.maLichChieu}`}>
                     <div className="time__showtime">
                         <span>
                             {timeMovie}
@@ -116,13 +114,13 @@ export default function TheaterList() {
         })
     }
     //function to render time of movie in mobile
-    const renderListTheaterInMobile = () => lstCumRap?.map((cine, index) => {
+    const renderListTheaterInMobile = () => lstCumRap?.map((cine) => {
         return (
-            <>
+            <div key={Math.random()}>
                 <div
                     className={phimTheoCumRap === cine.maCumRap ? `list__item active collapsed` : `list__item collapsed`}
                     onClick={() => setPhimTheoCumRap(cine.maCumRap)}
-                    key={index}
+                    key={Math.random()}
                     data-toggle="collapse"
                     aria-expanded="false"
                     data-parent="#mymovie"
@@ -141,9 +139,9 @@ export default function TheaterList() {
                 >
                     <div className="theater__showtime">
                         {
-                            cine.danhSachPhim.slice(0, 4).map((rap, indexS) => {
+                            cine.danhSachPhim.slice(0, 4).map((rap) => {
                                 return (
-                                    <div className="time__content" key={indexS} >
+                                    <div className="time__content" key={Math.random()} >
                                         <div
                                             className="time__header collapsed"
                                             data-toggle="collapse"
@@ -173,7 +171,7 @@ export default function TheaterList() {
                         }
                     </div>
                 </div>
-            </>
+            </div>
         )
     })
 
