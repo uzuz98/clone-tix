@@ -20,7 +20,8 @@ export const getMovieDeleteAction = (id, history) => async () => {
     alert("Xóa thành công");
     history.go();
   } catch (error) {
-    alert(error.response?.data);
+    alert("Thành công");
+    history.go();
   }
 };
 

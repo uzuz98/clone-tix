@@ -14,12 +14,12 @@ export const getMovieManageApi = (form__data) => {
 };
 
 export const getMovieDeleteApi = (id) => {
-  let user = localStorage.getItem("token");
+  let user = JSON.parse(localStorage.getItem("userLogin"));
   return axios({
     method: METHOD_HTTP.DELETE,
     url: `${baseUrl}/QuanLyPhim/XoaPhim?MaPhim=${id}`,
     headers: {
-      Authorization: `Bearer ${user}`,
+      Authorization: `Bearer ${user.accessToken}`,
     },
   });
 };
