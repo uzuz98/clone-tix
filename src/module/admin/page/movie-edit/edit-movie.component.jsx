@@ -37,8 +37,6 @@ export default function EditMovie() {
     //function to delete the movie
     const handleDelete = (id) => {
         dispatch(getMovieDeleteAction(id.maPhim, history))
-        setModalDelete(!modalDelete)
-        setRootBody(!rootBody)
     }
     //render the modal delete to delete the movie
     const renderModalDelteMovie = () => {
@@ -95,8 +93,8 @@ export default function EditMovie() {
 
             </td>
             <td>
-                <NavLink to={`/admin/schedule/add/${movie.maPhim}/${movie.tenPhim}`} className='btn btn-success'>Thêm</NavLink>
-                <NavLink to={`/admin/schedule/delete/${movie.maPhim}/${movie.tenPhim}`} className='btn btn-danger'>Xóa</NavLink>
+                <NavLink to={`/admin/schedule/add/${movie.maPhim}`} className='btn btn-success'>Thêm</NavLink>
+                <NavLink to={`/admin/schedule/delete/${movie.maPhim}`} className='btn btn-danger'>Xóa</NavLink>
             </td>
             {movieDelete === movie && renderModalDelteMovie()}
         </tr>

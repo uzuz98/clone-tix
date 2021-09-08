@@ -33,10 +33,10 @@ export const getScheduleCinemAction = (maHeThongRap) => async (dispatch) => {
 };
 
 export const getScheduleCreateAction =
-  (ticketDetail, history, id, tenPhim) => async () => {
+  (ticketDetail, history, id) => async () => {
     try {
       await getScheduleCreateApi(ticketDetail);
-      history.push(`/admin/schedule/delete/${id}/${tenPhim}`);
+      history.push(`/admin/schedule/delete/${id}`);
       alert("Thành công");
     } catch (error) {
       console.log(error);

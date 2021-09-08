@@ -72,12 +72,12 @@ export const adminRoutes = [
     Component: UserEdit,
   },
   {
-    path: "/admin/schedule/delete/:id/:tenPhim",
+    path: "/admin/schedule/delete/:id",
     exact: true,
     Component: ScheduleDelete,
   },
   {
-    path: "/admin/schedule/add/:id/:tenPhim",
+    path: "/admin/schedule/add/:id",
     exact: true,
     Component: ScheduleAdd,
   },
