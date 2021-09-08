@@ -74,7 +74,7 @@ export default function ScheduleAdd() {
     return (
         <>
             {
-                loading ? <LoadingScreen /> : (
+                !loading ? <LoadingScreen /> : (
                     <section className="schedule__add">
                         <div className="schedule__add--header text-center" style={{ width: "100%" }}>
                             <h1>Thêm lịch chiếu vào phim</h1>
