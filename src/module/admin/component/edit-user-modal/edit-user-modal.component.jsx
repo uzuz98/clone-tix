@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import { GROUP_ID } from '../../../../config/groupid.config'
 import { getEditUserAction } from '../../../../store/actions/user-manage.action'
 import './edit-user-modal.style.scss'
 
@@ -18,7 +19,7 @@ export default function EditUserModalComponent(props) {
             hoTen: userEdit.user.hoTen,
             soDt: userEdit.user.soDt,
             maLoaiNguoiDung: userEdit.user.maLoaiNguoiDung,
-            maNhom: "GP09",
+            maNhom: GROUP_ID,
             email: userEdit.user.email,
         })
     }, [userEdit?.isValid])

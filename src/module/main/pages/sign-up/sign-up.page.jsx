@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { NavLink, useHistory } from 'react-router-dom'
+import { GROUP_ID } from '../../../../config/groupid.config'
 import logo from '../../../../img/logo.png'
 import { getSignUpAction } from '../../../../store/actions/auth.action'
 
@@ -18,7 +19,7 @@ export default function SignUp() {
             hoTen: "",
 
             maLoaiNguoiDung: "KhachHang",
-            maNhom: "GP09"
+            maNhom: GROUP_ID
         },
         error: {
             hoTen: "",

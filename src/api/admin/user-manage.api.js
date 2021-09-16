@@ -1,5 +1,6 @@
 import axios from "axios";
 import { baseUrl, METHOD_HTTP } from "../../config/api.config";
+import { GROUP_ID } from "../../config/groupid.config";
 
 let token = localStorage.getItem("token");
 
@@ -17,7 +18,7 @@ export const getAddUserApi = (user) => {
 export const getListUserApi = () =>
   axios({
     method: METHOD_HTTP.GET,
-    url: `${baseUrl}/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP09`,
+    url: `${baseUrl}/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=${GROUP_ID}`,
   });
 
 export const getDeleteUserApi = (taiKhoan) =>

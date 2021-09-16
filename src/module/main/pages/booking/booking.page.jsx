@@ -27,7 +27,11 @@ export default function Booking() {
     useEffect(() => {
         dispatch(getListChairAction(id, setIsLoading))
         window.scrollTo(0, 0)
-
+        return () => {
+            dispatch({
+                type: "CLEAR_STORE",
+            })
+        }
     }, []);
     //get the danhSachGhe,thongTinPhim from store redux
     const { danhSachGhe } = useSelector((state) => state.booking.listChair)

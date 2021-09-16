@@ -5,6 +5,7 @@ import { getMovieAddAction } from '../../../../store/actions/movie-manage.action
 import "./add-movie.style.scss"
 import { getMovieListAction } from '../../../../store/actions/movie.action'
 import { useHistory } from 'react-router-dom'
+import { GROUP_ID } from '../../../../config/groupid.config'
 
 export default function AddMovie() {
     const dispatch = useDispatch()
@@ -17,7 +18,7 @@ export default function AddMovie() {
         hinhAnh: {},
         moTa: "",
         ngayKhoiChieu: "",
-        maNhom: "GP09",
+        maNhom: GROUP_ID,
     })
     //update the movie detail
     const handleChange = (event) => {

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import { GROUP_ID } from '../../../../config/groupid.config'
 import { getAddUserAction } from '../../../../store/actions/user-manage.action'
 import './add-user.style.scss'
 
@@ -12,7 +13,7 @@ export default function UserAdd() {
             matKhau: "",
             email: "",
             soDt: "",
-            maNhom: "GP09",
+            maNhom: GROUP_ID,
             hoTen: "",
             maLoaiNguoiDung: "",
         },
