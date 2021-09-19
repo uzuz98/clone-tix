@@ -1,3 +1,5 @@
+@import "../../../template/main.scss";
+
 .theater__content {
   margin-top: 50px;
   padding: 100px 0;
@@ -39,8 +41,8 @@
     .active {
       opacity: 1;
       &:after {
-        background-color: #fb4226;
-        box-shadow: 0 -3px 10px 0 #fb4226;
+        background-color: $main-color;
+        box-shadow: 0 -3px 10px 0 $main-color;
       }
     }
   }
@@ -87,8 +89,8 @@
     .active {
       opacity: 1;
       &:after {
-        background-color: #fb4226;
-        box-shadow: 0 -3px 10px 0 #fb4226;
+        background-color: $main-color;
+        box-shadow: 0 -3px 10px 0 $main-color;
       }
     }
   }
@@ -149,7 +151,7 @@
           .name__age {
             text-align: center;
             border-radius: 4px;
-            background: #fb4226;
+            background: $main-color;
             color: #fff;
             font-size: 14px;
             padding: 2px 10px;
@@ -204,7 +206,7 @@
               transition: none;
             }
             &:hover {
-              color: #fb4226;
+              color: $main-color;
               background-color: white;
             }
           }

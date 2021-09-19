@@ -1,3 +1,5 @@
+@import "../../../template/main.scss";
+
 .admin__main {
   padding-left: 0 !important;
   padding-right: 0px !important;
@@ -15,7 +17,7 @@
   h3 {
     cursor: pointer;
     span {
-      color: #fb4226;
+      color: $main-color;
     }
   }
   .admin__logo {

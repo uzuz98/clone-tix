@@ -1,10 +1,12 @@
+@import "../../../template/main.scss";
+
 .schedule__add {
   position: absolute;
   top: 10%;
   left: 0%;
   width: 100%;
   &--header {
-    color: #fb4226;
+    color: $main-color;
     font-weight: 700;
     margin: 50px 0;
   }
@@ -13,7 +15,7 @@
     p {
       font-weight: 700;
       span {
-        color: #fb4226;
+        color: $main-color;
       }
     }
     .schedule__add--form {

@@ -1,3 +1,5 @@
+@import "../../../template/main.scss";
+
 .admin__main {
   .home__admin {
     position: absolute;
@@ -6,7 +8,7 @@
     transform: translate(-50%, -50%);
     text-align: center;
     span {
-      color: #fb4226;
+      color: $main-color;
     }
   }
 }

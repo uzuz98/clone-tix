@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getMovieListAction } from '../../../../store/actions/movie.action';
 import Banner from '../../components/bannner/banner.component';
@@ -16,11 +16,8 @@ export default function Home() {
     const [isLoading, setIsLoading] = useState(false)
     //call api
     useEffect(() => {
-        dispatch(getMovieListAction())
+        dispatch(getMovieListAction(setIsLoading, isLoading))
         dispatch(getTheaterShowTimeAction())
-        setTimeout(() => {
-            setIsLoading(true)
-        }, 2000);
     }, [])
     //take the movieList from store
     const movieList = useSelector((state) => state.movie.movieList)

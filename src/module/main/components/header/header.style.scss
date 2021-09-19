@@ -1,3 +1,5 @@
+@import "../../../template/main.scss";
+
 header {
   position: fixed;
   width: 100%;
@@ -16,14 +18,14 @@ header {
     }
     .nav-item {
       .header__fullname {
-        color: #fb4226;
+        color: $main-color;
         text-decoration: underline;
       }
       .nav-link {
         color: black;
       }
       .nav-link-active {
-        color: #fb4226;
+        color: $main-color;
       }
     }
     .sign {

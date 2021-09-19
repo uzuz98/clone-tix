@@ -1,3 +1,5 @@
+@import "../../../template/main.scss";
+
 .footer,
 .footer__profile {
   background-color: #222;
@@ -47,7 +49,7 @@
       margin-bottom: 0.25rem;
       a {
         display: inline;
-        color: #fb4226;
+        color: $main-color;
         font-size: 12px;
       }
     }

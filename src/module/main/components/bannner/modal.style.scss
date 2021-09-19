@@ -1,3 +1,5 @@
+@import "../../../template/main.scss";
+
 .best__movie {
   width: 100%;
   .slick-slider {
@@ -65,7 +67,7 @@
         color: #d8d8d8;
       }
       .slick-active button::before {
-        color: #fb4226;
+        color: $main-color;
       }
     }
   }

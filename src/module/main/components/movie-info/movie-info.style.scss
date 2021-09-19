@@ -1,3 +1,5 @@
+@import "../../../template/main.scss";
+
 .movie__detail {
   .movie__detail__wrap {
     .carousel {
@@ -46,7 +48,7 @@
           span {
             text-align: center;
             border-radius: 4px;
-            background: #fb4226;
+            background: $main-color;
             color: #fff;
             font-size: 14px;
             padding: 2px 10px;
@@ -55,12 +57,6 @@
           }
           font-size: 20px;
           font-weight: 700;
-        }
-        .movie-detail__name-movie {
-        }
-        .movie-detail__description {
-        }
-        .movie-detail__danhgia {
         }
       }
     }

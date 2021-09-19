@@ -1,8 +1,10 @@
+@import "../../../template/main.scss";
+
 .movie__management--list {
   width: 100%;
   margin-top: 50px;
   .movie__manage--header {
-    color: #fb4226;
+    color: $main-color;
     font-weight: 700;
     font-size: 20px;
   }
@@ -81,7 +83,7 @@
               p {
                 font-weight: 700;
                 span {
-                  color: #fb4226;
+                  color: $main-color;
                 }
               }
             }
@@ -97,7 +99,7 @@
     padding: 10px 0;
     border: 1px solid black;
     box-shadow: 0 0 10px black;
-    color: #fb4226;
+    color: $main-color;
     font-weight: 700;
   }
   .rating {
@@ -152,7 +154,7 @@
       bottom: 17%;
       right: 9%;
       p {
-        color: #fb4226;
+        color: $main-color;
         font-weight: 700;
       }
     }
@@ -234,8 +236,6 @@
               img {
                 width: 90px !important;
                 height: 90px !important;
-              }
-              .btn-success {
               }
             }
             .description {
@@ -352,17 +352,6 @@
       }
       table {
         margin-left: 0;
-        thead {
-          display: none;
-          tr {
-            .rating {
-            }
-            th {
-            }
-            .description {
-            }
-          }
-        }
       }
     }
   }
@@ -433,8 +422,6 @@
         .submit__form {
           top: 75%;
           right: 30%;
-          button {
-          }
         }
       }
     }

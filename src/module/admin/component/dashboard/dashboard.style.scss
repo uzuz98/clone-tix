@@ -1,3 +1,5 @@
+@import "../../../template/main.scss";
+
 .admin__ {
   padding-right: 0 !important;
   height: 100vh;
@@ -23,7 +25,7 @@
       width: 50px;
     }
     span {
-      color: #fb4226;
+      color: $main-color;
       font-weight: 700;
     }
   }
@@ -35,7 +37,7 @@
       li {
         margin-bottom: 20px;
         .dashboard__active {
-          color: #fb4226;
+          color: $main-color;
           font-size: 13px;
         }
         p {
@@ -56,7 +58,7 @@
           color: black;
           font-size: 13px;
           &:hover {
-            color: #fb4226;
+            color: $main-color;
           }
         }
         a {
@@ -67,7 +69,7 @@
           &:hover {
             text-decoration: none;
             font-size: 15px;
-            color: #fb4226;
+            color: $main-color;
           }
         }
       }

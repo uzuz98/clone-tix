@@ -1,3 +1,5 @@
+@import "../../../template/main.scss";
+
 .card__title {
   .nav-tabs {
     border-bottom: none;
@@ -51,7 +53,7 @@
     .card__age {
       text-align: center;
       border-radius: 4px;
-      background: #fb4226;
+      background: $main-color;
       color: #fff;
       font-size: 14px;
       padding: 2px 10px;
@@ -96,7 +98,7 @@
       flex-direction: row;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(270deg, #fb4226, #ce3017);
+      background: linear-gradient(270deg, $main-color, #ce3017);
       color: white;
       height: 50px;
       position: absolute;

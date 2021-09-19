@@ -6,7 +6,7 @@ import Slider from 'react-slick'
 import ModalCard from './modal.component'
 import { Link } from 'react-router-dom'
 
-export default class Banner extends Component {
+class Banner extends Component {
     renderImg = bannerMovie.map((banner, index) => (
         <div className="banner__item" key={index}>
             <Link to={`movie-detail/${banner.id}`}>
@@ -35,3 +35,5 @@ export default class Banner extends Component {
         )
     }
 }
+
+export default Banner

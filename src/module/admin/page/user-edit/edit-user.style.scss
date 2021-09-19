@@ -1,3 +1,5 @@
+@import "../../../template/main.scss";
+
 .user__edit {
   position: absolute;
   top: 10%;
@@ -6,7 +8,7 @@
   &--header {
     margin: 50px 0;
     h3 {
-      color: #fb4226;
+      color: $main-color;
       font-weight: 700;
     }
   }
@@ -19,7 +21,7 @@
   }
   .search__error {
     border: 1px solid black;
-    color: #fb4226;
+    color: $main-color;
     font-weight: 700;
     padding: 10px;
     width: 60%;

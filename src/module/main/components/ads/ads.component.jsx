@@ -14,7 +14,7 @@ export default function Ads() {
     const settings = {
         dots: false,
         infinite: true,
-        autoplay: true,
+        autoplay: false,
         autoplaySpeed: 3000,
         slidesToShow: 1,
         slidesToScroll: 1,

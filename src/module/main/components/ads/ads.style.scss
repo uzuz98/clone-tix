@@ -1,3 +1,5 @@
+@import "../../../template/main.scss";
+
 .ads {
   background-image: url("../../../../img/ads/background.jpg");
   background-size: cover;
@@ -19,11 +21,11 @@
       }
       .btnDownload {
         font-size: 16px;
-        background: #fb4226;
+        background: $main-color;
         padding: 10px 20px;
         font-weight: 700;
         color: #fff;
-        border: 1px solid #fb4226;
+        border: 1px solid $main-color;
         border-radius: 4px;
         cursor: pointer;
         &:hover {
@@ -43,7 +45,7 @@
           margin: 0 3px;
           color: white;
           &:hover {
-            color: #fb4226;
+            color: $main-color;
           }
         }
       }
@@ -69,6 +71,27 @@
       img {
         width: 152px;
         border-radius: 4px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768.22px) {
+  .ads__content {
+    .ads__mobile {
+      width: 100%;
+      padding: 0 26.5%;
+    }
+    .ads__app {
+      margin-top: 20px;
+    }
+    .ads__carousel {
+      left: -59px;
+      top: 1px;
+      .slick-list {
+        height: 654px;
+        width: 306px;
+        border-radius: 32px;
       }
     }
   }

@@ -1,3 +1,5 @@
+@import "../../../template/main.scss";
+
 #movie__detail--showtime {
   padding: 30px 0;
   ::-webkit-scrollbar {
@@ -42,8 +44,8 @@
       .active {
         opacity: 1;
         &:after {
-          background-color: #fb4226;
-          box-shadow: 0 -3px 10px 0 #fb4226;
+          background-color: $main-color;
+          box-shadow: 0 -3px 10px 0 $main-color;
         }
       }
     }
@@ -71,7 +73,7 @@
         .active {
           opacity: 1;
           p:first-child {
-            color: #fb4226;
+            color: $main-color;
           }
         }
       }
@@ -100,7 +102,7 @@
             position: relative;
             .time__name {
               p {
-                color: #fb4226;
+                color: $main-color;
                 font-weight: 600;
               }
             }
@@ -146,7 +148,7 @@
                 transition: none;
               }
               &:hover {
-                color: #fb4226;
+                color: $main-color;
                 background-color: white;
               }
             }
