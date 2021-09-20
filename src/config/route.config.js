@@ -1,15 +1,64 @@
-import HomeAdmin from "../module/admin/page/home/home-admin.page";
-import AddMovie from "../module/admin/page/movie-add/add-movie.component";
-import EditMovie from "../module/admin/page/movie-edit/edit-movie.component";
-import ScheduleAdd from "../module/admin/page/schedule-add/schedule-add.page";
-import ScheduleDelete from "../module/admin/page/schedule-delete/schedule-delete.page";
-import UserAdd from "../module/admin/page/user-add/add-user.component";
-import UserEdit from "../module/admin/page/user-edit/edit-user.component";
-import Home from "../module/main/pages/homes/home.page";
-import MovieDetail from "../module/main/pages/movie-detail/movie-detail.page";
-import Profile from "../module/main/pages/profile/profile.page";
-import SignIn from "../module/main/pages/sign-in/sign-in.page";
-import SignUp from "../module/main/pages/sign-up/sign-up.page";
+import LazyLoadComponent from "../module/lazyload/lazyload.component";
+const Home = LazyLoadComponent(() =>
+  import("../module/main/pages/homes/home.page").then(
+    (module) => module.default
+  )
+);
+const MovieDetail = LazyLoadComponent(() =>
+  import("../module/main/pages/movie-detail/movie-detail.page").then(
+    (module) => module.default
+  )
+);
+const SignIn = LazyLoadComponent(() =>
+  import("../module/main/pages/sign-in/sign-in.page").then(
+    (module) => module.default
+  )
+);
+const SignUp = LazyLoadComponent(() =>
+  import("../module/main/pages/sign-up/sign-up.page").then(
+    (module) => module.default
+  )
+);
+const Profile = LazyLoadComponent(() =>
+  import("../module/main/pages/profile/profile.page").then(
+    (module) => module.default
+  )
+);
+const UserAdd = LazyLoadComponent(() =>
+  import("../module/admin/page/user-add/add-user.component").then(
+    (module) => module.default
+  )
+);
+const UserEdit = LazyLoadComponent(() =>
+  import("../module/admin/page/user-edit/edit-user.component").then(
+    (module) => module.default
+  )
+);
+const ScheduleDelete = LazyLoadComponent(() =>
+  import("../module/admin/page/schedule-delete/schedule-delete.page").then(
+    (module) => module.default
+  )
+);
+const ScheduleAdd = LazyLoadComponent(() =>
+  import("../module/admin/page/schedule-add/schedule-add.page").then(
+    (module) => module.default
+  )
+);
+const EditMovie = LazyLoadComponent(() =>
+  import("../module/admin/page/movie-edit/edit-movie.component").then(
+    (module) => module.default
+  )
+);
+const AddMovie = LazyLoadComponent(() =>
+  import("../module/admin/page/movie-add/add-movie.component").then(
+    (module) => module.default
+  )
+);
+const HomeAdmin = LazyLoadComponent(() =>
+  import("../module/admin/page/home/home-admin.page").then(
+    (module) => module.default
+  )
+);
 
 export const mainRoutes = [
   {
