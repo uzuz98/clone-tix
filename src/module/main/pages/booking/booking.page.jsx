@@ -14,7 +14,7 @@ export default function Booking() {
     const dispatch = useDispatch()
     const [modal, setModal] = useState()
     const [isLoadng, setIsLoading] = useState(false)
-    const [payment, setPayment] = useState("1")
+    const [checked, setIsChecked] = useState(false)
     //open and close modal
     const toggleModal = () => {
         setModal(!modal)
@@ -41,14 +41,39 @@ export default function Booking() {
     const handleChoiceChair = (chair) => {
         dispatch(choiceChairAction(chair))
     }
+
+    //render total list row chair
+    const totalRowChair = danhSachGhe?.length / 16
+    let rowChairNumber = []
+    for (let index = 0; index < totalRowChair; index++) {
+        rowChairNumber.push(index)
+    }
+    const renderListRowChair = () => rowChairNumber.map(number => {
+        let rowChair = String.fromCharCode(65 + number)
+        return (
+            <button key={Math.random() * number} className="btn chair__item row__chair" style={{ cursor: "unset" }}>{rowChair}</button>
+        )
+    })
+
     //get the list Seat have chosen
     const { listSeat } = useSelector(state => state.booking)
     //sort the list seat from low to high
     const listSeatSort = listSeat?.sort((a, b) => a - b)
-    //render to html the list seat had chosen
+    //render the list seat had chosen
     const renderListSeatBooking = () => listSeatSort?.map((seat, index) => {
+        const chairStt = (+seat) % 16
+        let rowChair = (seat / 16);
+        if (rowChair % 1 !== 0) {
+            if (rowChair % 10 >= 0.5) {
+                rowChair = String.fromCharCode(65 + (+rowChair.toFixed(0)) - 1)
+            } else {
+                rowChair = String.fromCharCode(65 + (+rowChair.toFixed(0)))
+            }
+        } else {
+            rowChair = rowChair
+        }
         return (
-            <p className="col-6" key={index}>Ghế {seat}</p>
+            <p className="col-6" key={index}>Ghế {rowChair}{chairStt}</p>
         )
     })
     const handleBooked = () => {
@@ -58,6 +83,7 @@ export default function Booking() {
     }
     //check the chair is booked, booking or non booking
     const handleStatusChair = (chair, index) => {
+        const chairStt = (+chair.stt) % 16
         if (chair.daDat) {
             return (
                 <button className="btn btn-danger chair__item" disabled key={Math.random()}></button>)
@@ -67,7 +93,7 @@ export default function Booking() {
                     key={Math.random()}
                     className="btn btn-success chair__item"
                     onClick={() => handleChoiceChair(chair)}
-                >{chair.stt}</button>)
+                >{(chairStt) > 0 ? chairStt : 16}</button>)
             } else if (!chair.dangChon) {
                 if (chair.loaiGhe === "Thuong") {
                     return (
@@ -76,7 +102,7 @@ export default function Booking() {
                             key={Math.random()}
                             onClick={() => handleChoiceChair(chair)}
 
-                        >{chair.stt}</button>
+                        >{(chairStt) > 0 ? chairStt : 16}</button>
                     )
                 }
                 return (
@@ -84,13 +110,13 @@ export default function Booking() {
                         className="btn btn-info chair__item"
                         key={Math.random() * index}
                         onClick={() => handleChoiceChair(chair)}
-                    >{chair.stt}</button>
+                    >{(chairStt) > 0 ? chairStt : 16}</button>
                 )
 
             }
         }
     }
-    //render list chair to html
+    //render list chair
     const renderListChair = () => danhSachGhe?.map((chair, index) => {
         return handleStatusChair(chair, index)
     })
@@ -128,6 +154,9 @@ export default function Booking() {
                                         <img src={screen} alt="" />
                                     </div>
                                     <div className="booking__left--listchair">
+                                        <div className="booking__left--chairnumber">
+                                            {renderListRowChair()}
+                                        </div>
                                         {renderListChair()}
                                     </div>
                                 </div>
@@ -186,17 +215,18 @@ export default function Booking() {
                                     </div>
                                     <div className="booking__right--item-payment">
                                         <p>Vui lòng chọn phương thức thanh toán</p>
-                                        <input type="radio" className="payment__value" id="cash" name="payment" value={payment} onChange={() => setPayment("1")} checked />
-                                        <label htmlFor="cash">Tiền mặt</label><br />
+                                        <input type="radio" className="payment__value" id="cash" name="payment" onClick={() => setIsChecked(true)} value="1" />
+                                        <label style={{ cursor: 'pointer' }} htmlFor="cash">Tiền mặt</label><br />
 
-                                        <input type="radio" className="payment__value" id="atm" name="payment" value={payment} onChange={() => setPayment("2")} checked />
-                                        <label htmlFor="atm">Thẻ ATM nội địa</label><br />
+                                        <input type="radio" className="payment__value" id="atm" name="payment" onClick={() => setIsChecked(true)} value="2" />
+                                        <label style={{ cursor: 'pointer' }} htmlFor="atm">Thẻ ATM nội địa</label><br />
 
-                                        <input type="radio" className="payment__value" id="visa" name="payment" value={payment} onChange={() => setPayment("3")} checked />
-                                        <label htmlFor="visa">Visa, Master, JCB</label>                        </div>
+                                        <input type="radio" className="payment__value" id="visa" name="payment" onClick={() => setIsChecked(true)} value="3" />
+                                        <label style={{ cursor: 'pointer' }} htmlFor="visa">Visa, Master, JCB</label>
+                                    </div>
                                     <div className="buy__ticket text-center">
                                         {
-                                            totalMoney > 0 ?
+                                            totalMoney > 0 & checked === true ?
                                                 <button className="btn btn-info btn__buy" onClick={() => toggleModal()}>Mua vé</button> :
                                                 <button className="btn btn-info btn__buy" disabled>Mua vé</button>
                                         }

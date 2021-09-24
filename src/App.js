@@ -74,7 +74,6 @@ function App() {
   };
   return (
     <BrowserRouter>
-      {window.scrollTo(0, 0)}
       <Switch>
         {renderAuthRoute()}
         {renderMainRoute()}

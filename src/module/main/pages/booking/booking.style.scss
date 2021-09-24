@@ -128,6 +128,19 @@
       margin: 4px;
       height: 35px;
     }
+    .booking__left--chairnumber {
+      position: absolute;
+      left: 21%;
+      .row__chair {
+        display: block;
+        margin-bottom: 8px;
+        background: transparent;
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+
     .booking__left--listchair {
       width: 50%;
     }
@@ -231,6 +244,9 @@
       }
     }
   }
+  .booking__content .booking__left--chairnumber {
+    left: 10%;
+  }
 }
 
 @media only screen and (max-width: 1024px) {
@@ -289,6 +305,12 @@
 }
 
 @media only screen and (max-width: 736px) {
+  .booking__content .booking__left--chairnumber {
+    left: 1%;
+    .row__chair {
+      margin-bottom: 4px;
+    }
+  }
   .booking {
     &__content {
       .booking__left {
@@ -454,6 +476,12 @@
           }
         }
       }
+    }
+  }
+  .booking__content .booking__left--chairnumber {
+    left: 3%;
+    .row__chair {
+      margin-bottom: 7px;
     }
   }
 }

@@ -35,8 +35,19 @@ export default function Profile() {
             <td>{movie.tenPhim}</td>
             <td className="row">
                 {movie?.danhSachGhe?.map((chair, indexS) => {
+                    const chairStt = (+chair.tenGhe) % 16
+                    let rowChair = (+chair.tenGhe / 16);
+                    if (rowChair % 1 !== 0) {
+                        if (rowChair % 10 >= 0.5) {
+                            rowChair = String.fromCharCode(65 + (+rowChair.toFixed(0)) - 1)
+                        } else {
+                            rowChair = String.fromCharCode(65 + (+rowChair.toFixed(0)))
+                        }
+                    } else {
+                        rowChair = rowChair
+                    }
                     return (
-                        <span key={indexS} className="col-6 col-sm-3">{chair.tenGhe} </span>
+                        <span key={indexS} className="col-6 col-sm-3">{rowChair}{chairStt}</span>
                     )
                 })}
             </td>
