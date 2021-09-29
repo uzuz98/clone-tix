@@ -1,37 +1,35 @@
 import axios from "axios";
 import { baseUrl, METHOD_HTTP } from "../../config/api.config";
+let token = localStorage.getItem("token");
 
 export const getMovieManageApi = (form__data) => {
-  let user = localStorage.getItem("token");
   return axios({
     method: METHOD_HTTP.POST,
     url: `${baseUrl}/QuanLyPhim/CapNhatPhimUpload`,
     data: form__data,
     headers: {
-      Authorization: `Bearer ${user}`,
+      Authorization: `Bearer ${token}`,
     },
   });
 };
 
 export const getMovieDeleteApi = (id) => {
-  let user = JSON.parse(localStorage.getItem("userLogin"));
   return axios({
     method: METHOD_HTTP.DELETE,
     url: `${baseUrl}/QuanLyPhim/XoaPhim?MaPhim=${id}`,
     headers: {
-      Authorization: `Bearer ${user.accessToken}`,
+      Authorization: `Bearer ${token}`,
     },
   });
 };
 
 export const getMovieAddApi = (form__data) => {
-  let user = localStorage.getItem("token");
   return axios({
     method: METHOD_HTTP.POST,
     url: `${baseUrl}/QuanLyPhim/ThemPhimUploadHinh`,
     data: form__data,
     headers: {
-      Authorization: `Bearer ${user}`,
+      Authorization: `Bearer ${token}`,
     },
   });
 };

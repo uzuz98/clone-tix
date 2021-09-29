@@ -19,9 +19,8 @@ export const getMovieDeleteAction = (id, history) => async () => {
     await getMovieDeleteApi(id);
     alert("Xóa thành công");
     history.go();
-  } catch (error) {
-    alert("Thành công");
-    history.go();
+  } catch (err) {
+    console.log(err);
   }
 };
 
