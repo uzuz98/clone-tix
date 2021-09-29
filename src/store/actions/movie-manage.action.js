@@ -14,11 +14,9 @@ export const getMovieManageAction = (form__data, history) => async () => {
   }
 };
 
-export const getMovieDeleteAction = (id, history) => async () => {
+export const getMovieDeleteAction = (id) => async () => {
   try {
     await getMovieDeleteApi(id);
-    alert("Xóa thành công");
-    history.go();
   } catch (err) {
     console.log(err);
   }
@@ -31,6 +29,5 @@ export const getMovieAddAction = (form__data, history) => async () => {
     history.push("/admin/movie-management/edit");
   } catch (error) {
     alert(error.response?.data);
-    console.log(error);
   }
 };

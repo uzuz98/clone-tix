@@ -11,10 +11,12 @@ import './edit-movie.style.scss'
 export default function EditMovie() {
     const dispatch = useDispatch()
     const { movieList } = useSelector(state => state.movie)
+    let [count, setCount] = useState(false)
 
     useEffect(() => {
         dispatch(getMovieListAction())
-    }, [])
+        setCount(false)
+    }, [count])
     //define searching input with "" (it mean find all the movie)
     const [searching, setSearching] = useState("")
     //get the movieList on store
@@ -36,7 +38,11 @@ export default function EditMovie() {
     const history = useHistory()
     //function to delete the movie
     const handleDelete = (id) => {
-        dispatch(getMovieDeleteAction(id.maPhim, history))
+        dispatch(getMovieDeleteAction(id.maPhim))
+        setCount(!count)
+        setModalDelete(!modalDelete)
+        setRootBody(!rootBody)
+        alert("Xóa thành công");
     }
     //render the modal delete to delete the movie
     const renderModalDelteMovie = () => {
