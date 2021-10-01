@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink, useHistory } from 'react-router-dom'
 import "./header.style.scss"
 import avatar from '../../../../img/avatar.png'
@@ -16,6 +16,11 @@ export default function Header() {
         document.querySelector(".navbar-collapse").classList.remove("show")
     }
 
+    const [logout, setLogout] = useState(false)
+    useEffect(() => {
+        renderLogin()
+        setLogout(!logout)
+    }, [logout === true])
     //press the menu to open overlay
     const toggleOverlay = () => {
         overlayToggle = !overlayToggle
@@ -47,12 +52,12 @@ export default function Header() {
     //function to check the user login or not yet
     const history = useHistory()
     const renderLogin = () => {
-        const token = localStorage.getItem("token")
         const hoTen = localStorage.getItem("hoTen")
+        const token = localStorage.getItem("token")
         const handleLogOut = () => {
             alert("Đăng xuất thành công")
             localStorage.clear()
-            history.go()
+            setLogout(!logout)
         }
         if (token) {
             return (

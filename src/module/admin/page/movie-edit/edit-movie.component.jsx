@@ -16,7 +16,7 @@ export default function EditMovie() {
     useEffect(() => {
         dispatch(getMovieListAction())
         setCount(false)
-    }, [count])
+    }, [count === true])
     //define searching input with "" (it mean find all the movie)
     const [searching, setSearching] = useState("")
     //get the movieList on store
