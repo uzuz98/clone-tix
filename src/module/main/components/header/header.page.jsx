@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink, useHistory } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import "./header.style.scss"
 import avatar from '../../../../img/avatar.png'
 import logo from '../../../../img/logo.png'
@@ -9,13 +9,13 @@ import { NavHashLink } from 'react-router-hash-link'
 
 export default function Header() {
     //press the title to scroll to title you pressed
-    let overlayToggle = false
+
+    const [overlay, setOverlay] = useState(false)
     const toggleClose = () => {
-        overlayToggle = !overlayToggle
+        setOverlay(!overlay)
         document.querySelector(".navbar__overlay").style.display = "none"
         document.querySelector(".navbar-collapse").classList.remove("show")
     }
-
     const [logout, setLogout] = useState(false)
     useEffect(() => {
         renderLogin()
@@ -23,8 +23,8 @@ export default function Header() {
     }, [logout === true])
     //press the menu to open overlay
     const toggleOverlay = () => {
-        overlayToggle = !overlayToggle
-        overlayToggle ? document.querySelector(".navbar__overlay").style.display = "block" : document.querySelector(".navbar__overlay").style.display = "none"
+        setOverlay(!overlay)
+        overlay === false ? document.querySelector(".navbar__overlay").style.display = "block" : document.querySelector(".navbar__overlay").style.display = "none"
     }
     //press the logo to scroll to top
     const scrollToTop = () => {
@@ -32,7 +32,7 @@ export default function Header() {
             top: 0,
             behavior: "smooth"
         })
-        overlayToggle = !overlayToggle
+        setOverlay(false)
         document.querySelector(".navbar__overlay").style.display = "none"
         document.querySelector(".navbar-collapse").classList.remove("show")
     }
@@ -50,7 +50,6 @@ export default function Header() {
     }
     window.addEventListener("scroll", scrollSticky)
     //function to check the user login or not yet
-    const history = useHistory()
     const renderLogin = () => {
         const hoTen = localStorage.getItem("hoTen")
         const token = localStorage.getItem("token")

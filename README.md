@@ -1,3 +1,14 @@
+# Project Movie Theater
+
+Wireframe (figma): https://www.figma.com/file/jBC4YED13X0aL8KVbho6cc/Project-Movie-Wireframing?node-id=0%3A1
+
+Demo: https://tixmovie-dun.vercel.app/
+
+Technology: ReactJS , Slick Slider, LazyLoad Component, Html, Scss, Axios, Bootstrap, Redux, Redux-Thunk,...
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
