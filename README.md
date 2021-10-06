@@ -1,6 +1,8 @@
 # Project Movie Theater
 
-Wireframe (figma): https://www.figma.com/file/jBC4YED13X0aL8KVbho6cc/Project-Movie-Wireframing?node-id=0%3A1
+Wireframe (figma): 
+  + Main: https://www.figma.com/file/jBC4YED13X0aL8KVbho6cc/Project-Movie-Wireframing?node-id=0%3A1
+  + Admin: https://www.figma.com/file/jBC4YED13X0aL8KVbho6cc/Project-Movie-Wireframing?node-id=4%3A199
 
 Demo: https://tixmovie-dun.vercel.app/
 
