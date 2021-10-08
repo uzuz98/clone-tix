@@ -8,12 +8,12 @@ Demo: https://tixmovie-dun.vercel.app/
 
 Task work:
 Project Movie Wireframing:
-Bảo Thành: Page main, Admin Home for desktop and Iphone
-Hoàng Trình: Page main, Admin Home for Ipad pro, Iphone-Landscape
++ Bảo Thành: Page main, Page Admin for desktop and Iphone
++ Hoàng Trình: Page main, Page Admin for Ipad pro, Iphone-Landscape
 
 Task build code:
-Bảo Thành: Bulid Home page, Booking page and css, build Admin
-Hoàng Trình: Build Movie detail page, Booking page and css, support Admin for Bảo Thành.
++ Bảo Thành: Bulid Home page, Booking page, Login page, Profile page and css and responsive, build Admin
++ Hoàng Trình: Build Movie detail page, Booking page and css and responsive, support Admin for Bảo Thành.
 
 In the process of building and developing project Movie Ticket, the two also support each other through each bug that they both encounter.
 Finally, thank you to cybersoft for supporting and helping the team complete this project.
