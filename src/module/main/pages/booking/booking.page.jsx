@@ -9,6 +9,8 @@ import LoadingScreen from '../../components/loading-screen/loadgin-screen.compon
 import "./booking.style.scss"
 
 
+
+
 export default function Booking() {
     const history = useHistory()
     const dispatch = useDispatch()
