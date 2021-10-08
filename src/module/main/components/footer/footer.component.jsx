@@ -98,7 +98,7 @@ export default function Footer() {
                             </a>
                         </span>
                         <span>
-                            * Đây là trang web đc clone bởi Hoàng Lê Bảo Thành với mục đích học tập.
+                            * Đây là trang web đc clone bởi Hoàng Lê Bảo Thành và Hoàng Trình với mục đích học tập.
                         </span>
                     </div>
                     <div className="col-md-2 text-center text-md-right mt-3 mt-md-0">
